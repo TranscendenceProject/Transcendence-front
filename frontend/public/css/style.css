@@ -5,6 +5,14 @@ body {
     /* background-size: cover; 배경 이미지를 화면에 맞게 조절 */
     /* background-position: center; 배경 이미지를 가운데 정렬 */
 }
+a {
+    text-decoration: none;
+    display: block;
+}
+a:hover:not(.job) {
+    background-color: #333;
+    color: #fff;
+}
 
 header {
     display: flex;
@@ -44,9 +52,11 @@ nav a {
 li {
     list-style-type: none;
 }
-.container {
+.full-container {
     width: 80%;
     background-color: rgb(113, 208, 251);
+    margin-left: auto;
+    margin-right: auto;
 }
 .inner-container {
     width: 80%;
@@ -65,10 +75,17 @@ li {
     width: 20%;
     height: auto;
 }
+.btn {
+    margin: 10px;
+}
 .pikachu-image {
     background-image: url("../images/background.jpeg"); /* 배경 이미지 경로 설정 */
     width: 80%;
     height: auto;
     /* background-size: cover;
     background-position: center; */
+}
+
+.dropdown-menu {
+    width: 150px;
 }

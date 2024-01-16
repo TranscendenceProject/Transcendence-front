@@ -6,7 +6,7 @@ import Router from "./Router.js";
 export default class App extends Component {
     template() {
         return `
-    <div class="container">
+    <div class="full-container">
       <header></header>
       <main></main>
     </div>
