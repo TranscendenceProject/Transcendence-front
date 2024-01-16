@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    /* 5px로 바꾼다쳐 */
     font-family: "Arial", sans-serif;
     /* background-image: url("../images/background.jpeg"); /* 배경 이미지 경로 설정 */
     /* background-size: cover; 배경 이미지를 화면에 맞게 조절 */
