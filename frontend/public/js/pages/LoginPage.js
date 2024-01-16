@@ -1,9 +1,9 @@
 import Component from '../core/Component.js';
 
-export default class Profile extends Component {
+export default class Login extends Component {
   template() {
     return `
-    <h2>Profile Page</h2>
+    <h2>Login Page</h2>
     `;
   }
 }
