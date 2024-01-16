@@ -44,5 +44,6 @@ export default class Home extends Component {
     this.addEvent('click', '#login-Button', ({ target }) => {
       this.moveFortyTwoOAuth();
     });
+
   }
 }
