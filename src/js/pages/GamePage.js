@@ -17,7 +17,7 @@ export default class GamePage extends Component {
           </li>
         </ul>
       </div>
-      <img class="pikachu-image" src="../images/background.jpeg"></img>
+      <img class="pikachu-image" src="/assets/background.jpeg"></img>
     </div>
     `;
   }
@@ -63,7 +63,7 @@ export default class GamePage extends Component {
 //               <li>${this.$state.render}</li>
 //             </ul>
 //             </div>
-//             <img class="pikachu-image" src="../images/background.jpeg"></img>
+//             <img class="pikachu-image" src="/assets/background.jpeg"></img>
 //           </div>`;
 //             break;
 //     }

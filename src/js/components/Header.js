@@ -5,7 +5,7 @@ export default class header extends Component {
     return `
     <a href="#/">
       <div class="logo">
-        <img src="/images/logo.jpg" alt="Logo" />
+        <img src="/assets/logo.jpg" alt="Logo" />
       </div>
     </a>
     <li class="nav-item dropdown">

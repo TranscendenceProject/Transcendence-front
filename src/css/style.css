@@ -2,7 +2,7 @@ body {
     margin: 0;
     /* 5px로 바꾼다쳐 */
     font-family: "Arial", sans-serif;
-    /* background-image: url("../images/background.jpeg"); /* 배경 이미지 경로 설정 */
+    /* background-image: url("/assets/background.jpeg"); /* 배경 이미지 경로 설정 */
     /* background-size: cover; 배경 이미지를 화면에 맞게 조절 */
     /* background-position: center; 배경 이미지를 가운데 정렬 */
 }
@@ -86,8 +86,7 @@ li {
 }
 
 .pikachu-image {
-    /* background-image: url("../images/background.jpeg"); 배경 이미지 경로 설정 */
-
+    /* background-image: url("../assets/background.jpeg"); 배경 이미지 경로 설정 */
     width: 80%;
     height: auto;
     /* background-size: cover;
