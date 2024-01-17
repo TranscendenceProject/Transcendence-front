@@ -25,6 +25,9 @@ export default class App extends Component {
         router.addRoute("#/profile", pages.profile);
         router.addRoute("#/friend", pages.friend);
         router.addRoute("#/login", pages.login);
+        router.addRoute("#/game/localGame", pages.localGame);
+        router.addRoute("#/game/multiGame", pages.multiGame);
+        router.addRoute("#/game/tournamentGame", pages.tournamentGame);
 
         router.start();
     }
