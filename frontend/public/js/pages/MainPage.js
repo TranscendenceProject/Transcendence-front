@@ -1,7 +1,7 @@
 import Component from '../core/Component.js';
 import api from '../api/http.js';
 
-export default class Home extends Component {
+export default class Main extends Component {
   template() {
     let loginOrGameContent = "";
     const loginState = localStorage.getItem("loginState");
