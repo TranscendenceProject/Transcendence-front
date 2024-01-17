@@ -82,8 +82,10 @@ export default class Otp extends Component {
         alert('입력한 OTP가 유효하지 않습니다');
       } else {
         const token = response.jwt_token;
-        localStorage.setItem('token', token)
+        localStorage.setItem('token', token);
+        localStorage.setItem('loginState', true);
         console.log(`로그인 성공!\njwt_token: ${localStorage.getItem('token')}`);
+        window.location.href = `http://127.0.0.1/#/`;
       }
     } catch (error) {
       console.error('Error: ', error.message);

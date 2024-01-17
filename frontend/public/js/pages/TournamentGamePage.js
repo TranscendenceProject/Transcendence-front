@@ -7,6 +7,6 @@ export default class TournamentGamePage extends Component {
         <span>Tournament canvas</span>
         <canvas id="tournament_canvas">Tournament Canvas Content</canvas>
         </div>
-    `;
+        ß`;
     }
 }
