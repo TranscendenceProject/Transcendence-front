@@ -2,23 +2,19 @@ import Component from '../core/Component.js';
 import api from '../api/http.js';
 
 export default class Home extends Component {
-  setup() {
-      this.$state = this.$props;
-  }
-  
   template() {
     let loginOrGameContent = "";
-    switch (this.$state.loginState) {
-      case true:
-        loginOrGameContent = `
-        <div class="btn-box">
-        <a class="btn btn-primary" href="#/game" role="button">게임플레이</a>
-        </div>
-        `
-      case false:
-        loginOrGameContent = `
-        <button id="login-button">Login</button>
-        `
+    const loginState = localStorage.getItem("loginState");
+    if (loginState) {
+      loginOrGameContent = `
+      <div class="btn-box">
+      <a class="btn btn-primary" href="#/game" role="button">게임플레이</a>
+      </div>
+      `;
+    } else {
+      loginOrGameContent = `
+      <button id="login-button">Login</button>
+      `;
     }
       return `
       <div class="main-box">

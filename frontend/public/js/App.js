@@ -4,23 +4,6 @@ import createPages from "./pages/index.js";
 import Router from "./Router.js";
 
 export default class App extends Component {
-    setup() {
-        const login = () => {
-            this.setState({ loginState: true });
-        };
-
-        const logout = () => {
-            this.setState({ loginState: false });
-        };
-
-        this.$state = {
-            loginState: false,
-            login: login,
-        };
-
-        // attacthedEventListeners = [];
-    }
-
     template() {
         return `
         <div class="full-container">
