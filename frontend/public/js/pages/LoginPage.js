@@ -5,7 +5,6 @@ import Otp from '../components/Otp.js';
 export default class Login extends Component {
   template() {
     return `
-    <h2>Login Page</h2>
     <div data-component='Otp'></div>
     `;
   }

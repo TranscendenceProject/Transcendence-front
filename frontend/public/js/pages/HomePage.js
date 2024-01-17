@@ -58,7 +58,7 @@ export default class Home extends Component {
     window.location.href = authorizationUrl;
   }
 
-  authenticateUser = async (authCode) => {
+  async authenticateUser(authCode) {
     try {
       const response = await api.get(`http://127.0.0.1:8000/users/create/${authCode}/`);
       console.log(response);

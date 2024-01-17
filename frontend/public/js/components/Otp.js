@@ -1,4 +1,5 @@
 import Component from '../core/Component.js';
+import api from '../api/http.js';
 
 export default class Otp extends Component {
   setup() {
@@ -27,7 +28,6 @@ export default class Otp extends Component {
     this.addEvent('input', '.otp-card-inputs input', (e) => this.handleInput(e));
     this.addEvent('keydown', '.otp-card-inputs input', (e) => this.handleKeyDown(e));
     this.addEvent('click', '#verifyButton', () => this.handleButtonClick());
-    this.addEvent('click', '#resendLink', (e) => this.handleResendClick(e));
   }
 
   handleInput(e) {
@@ -64,15 +64,38 @@ export default class Otp extends Component {
     }
   }
 
-  handleButtonClick() {
+  async handleButtonClick() {
     console.log(this.$state.otpString.join(''));
+
+    
+    const jwtTokenEndpoint = 'http://127.0.0.1:8000/users/verify/';
+    const requestData = {
+      access_token: `${localStorage.getItem('access_token')}`,
+      input_number: `${this.$state.otpString.join('')}`,
+    };
+    
+    try {
+      const response = await api.post(jwtTokenEndpoint, requestData);
+      console.log(response)
+      if (response.status === 'NO') {
+        this.$state.otpString = ['', '', '', '', '', ''];
+        alert('입력한 OTP가 유효하지 않습니다');
+      } else {
+        const token = response.jwt_token;
+        localStorage.setItem('token', token)
+        console.log(`로그인 성공!\njwt_token: ${localStorage.getItem('token')}`);
+      }
+    } catch (error) {
+      console.error('Error: ', error.message);
+    }
   }
 
   updateVerifyButtonState() {
     const lastInput = this.$state.otpString[this.$state.otpString.length - 1];
     const isLastInputFilled = lastInput.trim() !== '';
-    console.log(this.$state.otpString);
+
     this.$target.querySelector('#verifyButton').disabled = !isLastInputFilled;
+    console.log(this.$state.otpString);
   }
 
   isVerifyButtonDisabled() {
