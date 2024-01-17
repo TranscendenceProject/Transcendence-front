@@ -19,6 +19,7 @@ export default class header extends Component {
           <a href="#/profile">Profile</a>
           <a href="#/friend">Friend</a>
           <a href="#/game">Game Play</a>
+          <a>Logout</a>
         </div>
     </li>
 
