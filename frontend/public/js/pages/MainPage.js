@@ -1,17 +1,17 @@
 import Component from '../core/Component.js';
 import api from '../api/http.js';
 
-export default class Home extends Component {
+export default class Main extends Component {
   template() {
     let loginOrGameContent = "";
     const loginState = localStorage.getItem("loginState");
-    if (loginState) {
+    if (loginState === "true") {
       loginOrGameContent = `
       <div class="btn-box">
       <a class="btn btn-primary" href="#/game" role="button">게임플레이</a>
       </div>
       `;
-    } else {
+    } else if (loginState === "false") {
       loginOrGameContent = `
       <button id="login-button">Login</button>
       `;

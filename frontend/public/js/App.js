@@ -20,7 +20,7 @@ export default class App extends Component {
         const pages = createPages($main, this.$state);
 
         const router = new Router($main, this.$state);
-        router.addRoute("#/", pages.home);
+        router.addRoute("#/", pages.main);
         router.addRoute("#/game", pages.game);
         router.addRoute("#/profile", pages.profile);
         router.addRoute("#/friend", pages.friend);
