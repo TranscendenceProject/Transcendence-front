@@ -37,16 +37,16 @@ export default class Home extends Component {
     this.addEvent('click', '#login-Button', ({ target }) => {
       this.moveFortyTwoOAuth();
     });
-
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const authCode = urlParams.get('code');
       urlParams.delete('code');
-
+  
       if (authCode) {
         this.authenticateUser(authCode);
       }
     });
+  }
   
   moveFortyTwoOAuth() {
     // const clientId = 'u-s4t2ud-b677e803809d207e81ae3a321bdf542af8d318ca330d81824e4b972bca224918';
@@ -78,5 +78,5 @@ export default class Home extends Component {
     } catch (error) {
       console.error('Error: ', error.message);
     }
-  };
   }
+}
