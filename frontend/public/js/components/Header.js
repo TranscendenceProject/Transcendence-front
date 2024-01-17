@@ -1,14 +1,13 @@
 import Component from "../core/Component.js";
 
 export default class header extends Component {
-    template() {
-        return `
+  template() {
+    return `
     <a href="#/">
       <div class="logo">
         <img src="/images/logo.jpg" alt="Logo" />
       </div>
     </a>
-    
     <li class="nav-item dropdown">
       <a class="nav-link pl-0 dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="far fa-heart"></i>
@@ -19,11 +18,16 @@ export default class header extends Component {
           <a href="#/profile">Profile</a>
           <a href="#/friend">Friend</a>
           <a href="#/game">Game Play</a>
-          <a>Logout</a>
+          <button class="logout">logout</button>
         </div>
     </li>
-
-
     `;
-    }
+  }
+
+  setEvent() {
+    this.addEvent('click', '.logout', ({ target }) => {
+      localStorage.setItem('loginState', 'false');
+      window.location.href = `http://127.0.0.1/#/lo`;
+    });
+  }
 }

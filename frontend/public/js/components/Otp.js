@@ -83,7 +83,7 @@ export default class Otp extends Component {
       } else {
         const token = response.jwt_token;
         localStorage.setItem('token', token);
-        localStorage.setItem('loginState', true);
+        localStorage.setItem('loginState', 'true');
         console.log(`로그인 성공!\njwt_token: ${localStorage.getItem('token')}`);
         window.location.href = `http://127.0.0.1/#/`;
       }
