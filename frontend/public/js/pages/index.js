@@ -2,6 +2,7 @@ import HomePage from "./HomePage.js";
 import GamePage from "./GamePage.js";
 import ProfilePage from "./ProfilePage.js";
 import FriendPage from "./FriendPage.js";
+import LoginPage from "./LoginPage.js";
 import LocalGamePage from "./LocalGamePage.js";
 import MultiGamePage from "./MultiGamePage.js";
 import TournamentGamePage from "./TournamentGamePage.js";
@@ -11,6 +12,7 @@ export default (main, $props) => {
   const game = () => new GamePage(main, $props);
   const profile = () => new ProfilePage(main, $props);
   const friend = () => new FriendPage(main, $props);
+  const login = () => new LoginPage(main, $props);
   const localGame = () => new LocalGamePage(main, $props);
   const multiGame = () => new MultiGamePage(main, $props);
   const tournamentGame = () => new TournamentGamePage(main, $props);
@@ -20,6 +22,7 @@ export default (main, $props) => {
     game,
     profile,
     friend,
+    login,
     localGame,
     multiGame,
     tournamentGame,

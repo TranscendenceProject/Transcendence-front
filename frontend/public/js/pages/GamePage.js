@@ -1,26 +1,26 @@
 import Component from "../core/Component.js";
 
 export default class GamePage extends Component {
-    template() {
-        return `
-        <div class="main-box">
-            <div class="btn-box">
-                <ul>
-                  <li>
-                    <a class="btn btn-primary" role="button"  href="#/game/localGame">로컬플레이</a>
-                  </li>
-                  <li>
-                    <a class="btn btn-primary" role="button"  href="#/game/multiGame">멀티플레이</a>
-                  </li>
-                  <li>
-                    <a class="btn btn-primary" role="button" href="#/game/tournamentGame">토너먼트</a>
-                  </li>
-                </ul>
-            </div>
-            <img class="pikachu-image" src="../images/background.jpeg"></img>
-        </div>
-        `;
-    }
+  template() {
+    return `
+    <div class="main-box">
+      <div class="btn-box">
+        <ul>
+          <li>
+            <a class="btn btn-primary" role="button"  href="#/game/localGame">로컬플레이</a>
+          </li>
+          <li>
+            <a class="btn btn-primary" role="button"  href="#/game/multiGame">멀티플레이</a>
+          </li>
+          <li>
+            <a class="btn btn-primary" role="button" href="#/game/tournamentGame">토너먼트</a>
+          </li>
+        </ul>
+      </div>
+      <img class="pikachu-image" src="../images/background.jpeg"></img>
+    </div>
+    `;
+  }
 }
 // 기존에 쓰던건데 이제 안쓰는거, 그냥 state관리 참고용으로 놔둠
 // setup() {
