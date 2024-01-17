@@ -3,7 +3,7 @@ import Component from "../core/Component.js";
 export default class header extends Component {
     template() {
         return `
-    <a href="/">
+    <a href="#/">
       <div class="logo">
         <img src="/images/logo.jpg" alt="Logo" />
       </div>
