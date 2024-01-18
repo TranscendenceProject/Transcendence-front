@@ -19,7 +19,7 @@ export default class Main extends Component {
       return `
       <div class="main-box">
       ${loginOrGameContent}
-      <img class="pikachu-image" src="../images/background.jpeg"></img>
+      <img class="pikachu-image" src="/assets/background.jpeg"></img>
       </div>
       `;
   }
