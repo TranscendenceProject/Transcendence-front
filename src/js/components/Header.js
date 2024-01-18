@@ -18,7 +18,7 @@ export default class header extends Component {
           <a href="#/profile">Profile</a>
           <a href="#/friend">Friend</a>
           <a href="#/game">Game Play</a>
-          <button class="logout">logout</button>
+          <span class="logout">logout</span>
         </div>
     </li>
     `;
@@ -27,7 +27,7 @@ export default class header extends Component {
   setEvent() {
     this.addEvent('click', '.logout', ({ target }) => {
       localStorage.setItem('loginState', 'false');
-      window.location.href = `http://127.0.0.1/#/lo`;
+      window.location.href = `http://127.0.0.1/#`;
     });
   }
 }
