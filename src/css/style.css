@@ -56,9 +56,15 @@ li {
     list-style-type: none;
 }
 
+.logout {
+    color: #333;
+}
+
+
 .full-container {
     width: 80%;
-    background-color: rgb(113, 208, 251);
+    /* background-color: rgb(113, 208, 251); */
+    background-color: rgb(244,244,244);
     margin-left: auto;
     margin-right: auto;
 }
@@ -70,8 +76,12 @@ li {
 }
 
 .main-box {
+    min-height: 500px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .btn-box {
@@ -95,11 +105,20 @@ li {
     background-position: center; */
 }
 
-.dropdown-menu {
+/* .dropdown-menu {
     width: 150px;
+} */
+.otp-box {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
-
 .otp-card {
+    width: 80%;
+    min-width: 550px;
+    height: auto;
 	text-align: center;
 	background-color: white;
 	border-radius: 20px;
@@ -148,3 +167,57 @@ li {
 	opacity: .6;
 	cursor: default;
 }
+
+
+
+
+
+.single-chart {
+    width: 33%;
+    justify-content: space-around ;
+  }
+  
+  .circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 80%;
+    max-height: 250px;
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+  }
+  
+  .circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+  }
+  
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+  
+  .circular-chart.orange .circle {
+    stroke: #ff9f00;
+  }
+  
+  .circular-chart.green .circle {
+    stroke: #4CC790;
+  }
+  
+  .circular-chart.blue .circle {
+    stroke: #3c9ee5;
+  }
+  
+  .percentage {
+    fill: #666;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    text-anchor: middle;
+  }
