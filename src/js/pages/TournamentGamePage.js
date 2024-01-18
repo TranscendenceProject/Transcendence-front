@@ -1,5 +1,5 @@
 import Component from "../core/Component.js";
-import PercentageCircle from "../components/percentageCircle.js";
+import PercentageCircle from "../components/PercentageCircle.js";
 export default class TournamentGamePage extends Component {
     template() {
         return `
