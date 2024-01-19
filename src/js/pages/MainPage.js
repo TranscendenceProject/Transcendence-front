@@ -64,12 +64,12 @@ export default class Main extends Component {
         // 새로고침 시 함수를 다시 실행하지 않도록 params값을 제거
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.delete("code");
-        window.history.replaceState({}, document.title, "http://127.0.0.1/#/");
+        window.history.replaceState({}, document.title, "#/");
         alert("로그인 실패");
       } else {
         localStorage.setItem("access_token", response.access_token);
         // OTP 컴포넌트가 있는 로그인 페이지로 이동
-        window.location.href = `http://127.0.0.1/#/login`;
+        window.location.href = `#/login`;
       }
     } catch (error) {
       console.error("Error: ", error.message);
