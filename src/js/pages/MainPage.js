@@ -13,7 +13,9 @@ export default class Main extends Component {
       `;
     } else {
       loginOrGameContent = `
-      <button id="login-button">Login</button>
+      <div class="btn-box">
+        <button id="login-button">Login</button>
+      </div>
       `;
       }
       return `
