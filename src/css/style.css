@@ -186,14 +186,15 @@ li {
   
   .circle-bg {
     fill: none;
-    stroke: #eee;
+    /* stroke: #eee; */
+    stroke: #e84057;
     stroke-width: 3.8;
   }
   
   .circle {
     fill: none;
-    stroke-width: 2.8;
-    stroke-linecap: round;
+    stroke-width: 3.8;
+    /* stroke-linecap: square; */
     animation: progress 1s ease-out forwards;
   }
   
@@ -212,7 +213,7 @@ li {
   }
   
   .circular-chart.blue .circle {
-    stroke: #3c9ee5;
+    stroke: #5383e8;
   }
   
   .percentage {
