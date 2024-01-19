@@ -1,4 +1,6 @@
 import Component from '../core/Component.js';
+import SearchUser from '../components/searchUser.js';
+
 
 export default class Login extends Component {
 
@@ -21,9 +23,21 @@ export default class Login extends Component {
           </li>
         </ul>
       </div>
-      <img class="pikachu-image" src="../assets/background.jpeg"></img>
+        <img class="pikachu-image" src="../assets/background.jpeg"></img>
       </div>
+      <div data-component='friendContainer' id="friendContainer"/>
+
     `;
+  }
+
+  mounted() {
+    const $friend = this.$target.querySelector(
+      "[data-component='friendContainer']"
+    );
+
+    if (this.$state.currentMenu === 'searchUser') {
+      new SearchUser($friend);
+    }
   }
 
   setEvent() {
