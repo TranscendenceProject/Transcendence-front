@@ -1,6 +1,6 @@
 import Component from '../core/Component.js';
 import SearchUser from '../components/searchUser.js';
-
+import ManageFriend from '../components/manageFriend.js';
 
 export default class Login extends Component {
 
@@ -37,6 +37,8 @@ export default class Login extends Component {
 
     if (this.$state.currentMenu === 'searchUser') {
       new SearchUser($friend);
+    } else if (this.$state.currentMenu === 'manageFriend') {
+      new ManageFriend($friend);
     }
   }
 
