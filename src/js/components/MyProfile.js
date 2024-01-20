@@ -137,16 +137,4 @@ export default class MyProfile extends Component {
   }
 }
 
-// user_id, name, bio, img_url 을 template에서 일단 선언해주고
-// mounted 시점에서 api로 받아온 값을 setState로 넣어주면 될 것 같습니다.
-// setState 되면 어차피 다시 render가 실행되니까요.
-
-
-
-// 사진 업로드 로직
-// 1. 사진 업로드 버튼 클릭
-// 2. input type="file" 을 통해 사진 선택
-// 3. 선택한 사진을 서버에 전송 (멀티파트 데이터로 전송,   https://developer.mozilla.org/ko/docs/Web/API/FormData/Using_FormData_Objects)
-// 4. 서버에서 사진을 저장하고, 저장된 사진의 url을 반환
-// 5. 반환된 url을 setState로 업데이트
-// 6. setState 되면 어차피 다시 render가 실행되니까요.
+// 사진 업로드 할때 용량 줄여서 보내줄건지 아니면 그냥 보내줄건지도 회의 필요합니다.
