@@ -243,7 +243,15 @@ li {
 	height: 10%;
 }
 
-.profile-img {
+#editButton {
+  padding: 6px 25px;
+  background-color:#FF6600;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+#imgProfile {
     width: 150px;
     height: 150px;
     border-radius: 50%;
