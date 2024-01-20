@@ -25,8 +25,9 @@ export default class Profile extends Component {
         </ul>
       </div>
       <img class="pikachu-image" src="assets/background.jpeg"></img>
-      </div>
-      <div data-component='ProfileContainer' id="ProfileConatiner"/>
+    </div>
+      
+      <div data-component='ProfileContainer' id="profile-container"/>
     `;
   }
 
@@ -49,5 +50,5 @@ export default class Profile extends Component {
     this.addEvent("click", "#myRecord", ({ target }) => {
       this.setState({ currentMenu: 'myRecord' });
     })
-  }
+  } 
 } 
