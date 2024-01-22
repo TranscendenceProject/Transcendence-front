@@ -63,6 +63,7 @@ li {
 
 .full-container {
     width: 80%;
+    min-width: 884px;
     /* background-color: rgb(113, 208, 251); */
     background-color: rgb(244,244,244);
     margin-left: auto;
@@ -91,6 +92,9 @@ li {
     flex-direction: column;
     width: 20%;
     height: auto;
+    margin-left: 2rem;
+  margin-right: 2rem;
+  min-width: 140px;
 }
 
 .btn {
@@ -227,6 +231,7 @@ li {
 	height: 80%;
 }
 
+
 #p1-score {
 	position: absolute;
 	top: 11%;
@@ -243,33 +248,70 @@ li {
 	height: 10%;
 }
 
-#editButton {
-  padding: 6px 25px;
-  background-color:#FF6600;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-}
 
 #imgProfile {
+    margin: 0 auto;
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #111;
-  }
+    /* border: 10px solid #ccc; */
+    background-color: #d9d9d9;
+}
 
-  #profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+#editButton {
+  position: absolute;
+  bottom: 0;
+  left: 0; /* 이미지의 왼쪽 하단에 위치하도록 설정 */
+  margin:0;
+}
+#saveButton {
+  margin : 0;
+}
+
+#saveButtonBox {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 75%;
+  height: 90%;
+	border-radius: 20px;
+	box-shadow: 0 10px 40px -20px black;
+  text-align: start;
+  min-width: 600px;
+  max-width: 900px;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
 #profile-box {
     display: flex;
-
     justify-content: space-between;
+    width: 500px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
 }
 #profile-img-box {
-    border: #111 2px solid;
+  display: flex;
+  flex-direction: column;
+    position: relative;
+}
+
+#divIntra, #inputName, #inputBio {
+  width: 330px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  padding: 5px;
+  border: transparent
+}
+
+#inputBio {
+  height: 68px;
 }

@@ -5,7 +5,6 @@ export default class MyProfile extends Component {
   constructor($target, $props) {
     super($target, $props);
     // this.GetUserData();
-    console.log("bb");// 이 시점에서 api 호출
   }
 
   setup() {
@@ -17,31 +16,36 @@ export default class MyProfile extends Component {
       img_url: 'assets/logo.jpeg',
       bio: 'bio',
     };
-    console.log("aa");
-    
   }
   template() {
     return `
+    <h3>
+    Public Profile
+    </h3>
     <div id = "profile-box">
       <div id ="profile-text-box">
-        <p>Intra id</p>
-        <span type="text" value=${this.$state.user_id} ></span>
-        <p>name</p>
+        <h4>Intra id</h4>
+        <div id = "divIntra"> ${this.$state.intra_id}</div>
+        <h4>name</h4>
         <input type="text" value="${this.$state.name}" id = "inputName"></input>
-        <p>Bio</p>
+        <h4>Bio</h4>
         <input type="text" value="${this.$state.bio}" id = "inputBio"></input>
       </div>
-      <div id ="profile-img-box">
-        <p>profile picture</p>
-        <img id = "imgProfile" src=${this.$state.img_url}>
-        <input type="file" id = "inputProfile"  style= "display:none;" accept="image/*" >
-        </img>
-        <label id="editButton" for="inputProfile">
+      <div>
+        <div id ="profile-img-box">
+          <h4>profile picture</h4>
+          <img id = "imgProfile" src=${this.$state.img_url}>
+          <input type="file" id = "inputProfile"  style= "display:none;" accept="image/*" >
+          </img>
+          <label class="btn btn-warning" id="editButton" for="inputProfile">
           edit
-        </label>
+          </label>
+        </div>
+        <div id= "saveButtonBox">
+          <a class="btn btn-success" role="button" id ="saveButton">save</a>
+        </div>
       </div>
     </div>
-    <a class="btn btn-primary" role="button" id ="saveButton">save</a>
     `
   }
   
@@ -59,8 +63,8 @@ export default class MyProfile extends Component {
     const newName = document.getElementById("inputName").value;
     const newBio = document.getElementById("inputBio").value;
     this.setState({
-       name: newName, 
-       bio: newBio,
+      name: newName, 
+      bio: newBio,
       });
     // this.PostUserData();
     console.log(this.$state);
@@ -136,5 +140,3 @@ export default class MyProfile extends Component {
   
   }
 }
-
-// 사진 업로드 할때 용량 줄여서 보내줄건지 아니면 그냥 보내줄건지도 회의 필요합니다.
