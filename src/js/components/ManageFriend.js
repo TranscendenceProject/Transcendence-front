@@ -3,13 +3,13 @@ import api from "../api/http.js";
 
 export default class ManageFriend extends Component {
   constructor($target, $props) {
-    this.super();
+    super($target, $props);
     // this.getFriendsList();
   } 
 
   setup() {
     this.$state = {
-      firends: [
+      friends: [
         {
           user_id: "1",
           intra_id: "seunghwk",
@@ -28,27 +28,40 @@ export default class ManageFriend extends Component {
     return `
     <div>
       <h2>친구 관리</h2>
-      <div> ${this.$state.firends.map(user => `
+      <div> ${this.$state.friends.map(user => `
         <div>
-          <p>User ID: ${user.user_id}</p>
           <p>Intra ID: ${user.intra_id}</p>
           <p>IsLogined: ${user.login_status ? '로그인' : '로그아웃'}</p>
-          <button>친구 삭제</button>
+          <button class="deleteButton" data-user-id="${user.user_id}">친구 삭제</button>
         </div>
       `).join('')}</div>
     </div>
     `;
   }
 
+  setEvent() {
+    this.addEvent('click', '.deleteButton', (e) => this.handleDeleteButtonClick(e));
+  }
+
+  handleDeleteButtonClick(e) {
+    const userIdToRemove = e.target.dataset.userId;
+    const newState = {
+      ...this.$state,
+      friends: this.$state.friends.filter(user => user.user_id !== userIdToRemove),
+    };
+
+    this.setState(newState);
+  }
+
   async getFriendsList() {
-    const url = 'http://127.0.0.1:8000/firends/list';
+    const url = 'http://127.0.0.1:8000/friends/list';
     const token = localStorage.getItem('token');
     const headers = { 'token': token };
     try {
       const response = await api.get(url, headers);
 
       this.setState({
-        firends: response.firends,
+        friends: response.friends,
       });
     } catch (error) {
       console.error('Error fetching data:', error);

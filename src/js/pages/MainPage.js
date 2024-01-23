@@ -27,9 +27,7 @@ export default class Main extends Component {
   }
 
   setEvent() {
-    this.addEvent("click", "#login-Button", ({ target }) => {
-      this.moveFortyTwoOAuth();
-    });
+    this.addEvent("click", "#login-Button", () => this.moveFortyTwoOAuth());
 
     document.addEventListener("DOMContentLoaded", () => {
       const urlParams = new URLSearchParams(window.location.search);
