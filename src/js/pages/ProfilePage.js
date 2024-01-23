@@ -6,7 +6,8 @@ import MyRecord from '../components/MyRecord.js';
 export default class Profile extends Component {
   setup() {
     this.$state = {
-      currentMenu: 'default',
+      currentMenu: 'myRecord',
+      // currentMenu: 'default',
       isMyProfileChecked: "",
       isMyRecordChecked: "",
     };
@@ -20,11 +21,11 @@ export default class Profile extends Component {
           <label class="btn btn" for="radio1" ">내 정보 수정</label>
         </input>
         <input type="radio" class="btn-check" name="options" id="radio2" autocomplete="off"  ${this.$state.isMyRecordChecked}>
-          <label class="btn btn" for="radio2" >내 기록</label>
+        <label class="btn btn" for="radio2" >내 기록</label>
         </input>
-        </div>
-      <div data-component='ProfileContainer' id="profile-container"/>
       </div>
+        <div data-component='ProfileContainer' class="content-container"/>
+    </div>
       `;
   }
 
@@ -32,7 +33,6 @@ export default class Profile extends Component {
     const $profile = this.$target.querySelector(
       "[data-component='ProfileContainer']"
     );
-
     if (this.$state.currentMenu === 'myProfile') {
       new MyProfile($profile);
     } else if (this.$state.currentMenu === 'myRecord') {

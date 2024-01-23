@@ -2,11 +2,7 @@
 
 body {
     margin: 0;
-    /* 5px로 바꾼다쳐 */
     font-family: "Arial", sans-serif;
-    /* background-image: url("/assets/background.jpeg"); /* 배경 이미지 경로 설정 */
-    /* background-size: cover; 배경 이미지를 화면에 맞게 조절 */
-    /* background-position: center; 배경 이미지를 가운데 정렬 */
 }
 a {
     text-decoration: none;
@@ -64,7 +60,6 @@ li {
 .full-container {
     width: 80%;
     min-width: 884px;
-    /* background-color: rgb(113, 208, 251); */
     background-color: rgb(244,244,244);
     margin-left: auto;
     margin-right: auto;
@@ -102,16 +97,10 @@ li {
 }
 
 .pikachu-image {
-    /* background-image: url("../assets/background.jpeg"); 배경 이미지 경로 설정 */
     width: 80%;
     height: auto;
-    /* background-size: cover;
-    background-position: center; */
 }
 
-/* .dropdown-menu {
-    width: 150px;
-} */
 .otp-box {
     min-height: 500px;
     display: flex;
@@ -273,7 +262,7 @@ li {
   flex-direction: row-reverse;
 }
 
-#profile-container {
+.content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -296,8 +285,8 @@ li {
     width: 500px;
     padding-bottom: 1rem;
     padding-top: 1rem;
-
 }
+
 #profile-img-box {
   display: flex;
   flex-direction: column;
@@ -314,4 +303,28 @@ li {
 
 #inputBio {
   height: 68px;
+}
+
+#record-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 500px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+#record-profile-box {
+  display: flex;
+}
+
+/* #record-list-box {
+} */
+
+#record-circle-box {
+  display: flex;
+  flex-direction: column;
+  /* width: 500px; */
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
