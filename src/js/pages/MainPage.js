@@ -52,7 +52,7 @@ export default class Main extends Component {
 
   async authenticateUser(authCode) {
     try {
-      const url = `http://127.0.0.1:8000/users/create/${authCode}/`;
+      const url = `http://127.0.0.1:8000/users/login/create/${authCode}`;
       const response = await api.get(url);
       console.log(response);
       console.log(response.message);

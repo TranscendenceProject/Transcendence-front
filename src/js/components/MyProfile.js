@@ -79,20 +79,20 @@ export default class MyProfile extends Component {
   }
 
   async GetUserData() {
-    const user_id = localStorage.getItem('user_id');
-    const url = 'http://127.0.0.1:8000/users/info/' + user_id; 
+    const url = `http://127.0.0.1:8000/users/info/read`;
     const token = localStorage.getItem('token');
-    const headers = { 'token': token };
+    const headers = { 'JWT': token };
 
     try {
       const response = await api.get(url, headers);
-
+      console.log(response);
       // 가져온 데이터로 상태 업데이트
       this.setState({
-        user_id: response.user_id,
-        name: response.name,
+        user_id: response.intra_pk_id,
+        intra_id: response.intra_id,
+        name: response.nick_name,
         bio: response.bio,
-        img_url: response.img_url,
+        img_url: response.profile_picture,
       });
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -101,14 +101,14 @@ export default class MyProfile extends Component {
 
   async PostUserData() {
     const user_id = localStorage.getItem('user_id');
-    const url = 'http://127.0.0.1:8000/users/info/' + user_id;
+    const url = 'http://127.0.0.1:8000/users/info/update'
     const token = localStorage.getItem('token');
-    const headers = { 'token': token };
+    const headers = { 'JWT': token };
     let profile_form = new FormData();
-    profile_form.append('user_id', this.$state.user_id);
+    profile_form.append('intra_pk_id', this.$state.user_id);
     profile_form.append('intra_id', this.$state.intra_id);
-    profile_form.append('name', this.$state.name);
-    profile_form.append('img_url', this.$state.img_url);
+    profile_form.append('nick_name', this.$state.name);
+    profile_form.append('profile_picture', this.$state.img_url);
     profile_form.append('bio', this.$state.bio);
     
     const body = profile_form;
@@ -121,10 +121,9 @@ export default class MyProfile extends Component {
   }
   
   async PostUserImg(Img) {
-    const user_id = localStorage.getItem('user_id');
-    const url = 'http://127.0.0.1:8000/users/info/image' + user_id;
+    const url = 'http://127.0.0.1:8000/users/info/update/image';
     const token = localStorage.getItem('token');
-    const headers = { 'token': token };
+    const headers = { 'JWT': token };
     let profile_form = new FormData();
     profile_form.append('profile_image', Img);
     

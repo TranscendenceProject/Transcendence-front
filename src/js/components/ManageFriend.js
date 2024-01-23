@@ -58,7 +58,7 @@ export default class ManageFriend extends Component {
   async getFriendsList() {
     const url = `http://127.0.0.1:8000/friends/list`;
     const token = localStorage.getItem('token');
-    const headers = { 'token': token };
+    const headers = { 'JWT': token };
     try {
       const response = await api.get(url, headers);
 
@@ -73,7 +73,7 @@ export default class ManageFriend extends Component {
   async deleteFriend(targetUserId) {
     const url = `http://127.0.0.1:8000/friends/delete?user_id=${targetUserId}`;
     const token = localStorage.getItem('token');
-    const headers = { 'token': token };
+    const headers = { 'JWT': token };
     try {
       const response = await api.delete(url, headers);
       alert("삭제 성공!");

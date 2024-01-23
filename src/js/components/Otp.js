@@ -66,7 +66,7 @@ export default class Otp extends Component {
 
   async handleButtonClick() {
     console.log(this.$state.otpString.join(''));
-    const url = 'http://127.0.0.1:8000/users/verify/';
+    const url = 'http://127.0.0.1:8000/users/login/verify';
     const body = {
       access_token: `${localStorage.getItem('access_token')}`,
       input_number: `${this.$state.otpString.join('')}`,
