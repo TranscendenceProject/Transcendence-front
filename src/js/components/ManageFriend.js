@@ -50,11 +50,12 @@ export default class ManageFriend extends Component {
       friends: this.$state.friends.filter(user => user.user_id !== userIdToRemove),
     };
 
+    this.deleteFriend(userIdToRemove)
     this.setState(newState);
   }
 
   async getFriendsList() {
-    const url = 'http://127.0.0.1:8000/friends/list';
+    const url = `http://127.0.0.1:8000/friends/list`;
     const token = localStorage.getItem('token');
     const headers = { 'token': token };
     try {
@@ -63,6 +64,19 @@ export default class ManageFriend extends Component {
       this.setState({
         friends: response.friends,
       });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  async deleteFriend(targetUserId) {
+    const url = `http://127.0.0.1:8000/friends/delete?user_id=${targetUserId}`;
+    const token = localStorage.getItem('token');
+    const headers = { 'token': token };
+    try {
+      const response = await api.delete(url, headers);
+      alert("삭제 성공!");
+      //추후 응답 코드에 따라 동작 추가 예정
     } catch (error) {
       console.error('Error fetching data:', error);
     }
