@@ -13,12 +13,12 @@ export default class ManageFriend extends Component {
         {
           user_id: "1",
           intra_id: "seunghwk",
-          login_status: true
+          login_status: "true",
         },
         {
           user_id: '2',
           intra_id: 'gsong',
-          login_status: false,
+          login_status: "false",
         },
       ],
     };
@@ -31,7 +31,7 @@ export default class ManageFriend extends Component {
       <div> ${this.$state.friends.map(user => `
         <div>
           <p>Intra ID: ${user.intra_id}</p>
-          <p>IsLogined: ${user.login_status ? '로그인' : '로그아웃'}</p>
+          <p>로그인 상태: ${user.login_status === "true" ? '로그인 중' : '로그아웃'}</p>
           <button class="deleteButton" data-user-id="${user.user_id}">친구 삭제</button>
         </div>
       `).join('')}</div>
@@ -50,7 +50,8 @@ export default class ManageFriend extends Component {
       friends: this.$state.friends.filter(user => user.user_id !== userIdToRemove),
     };
 
-    this.deleteFriend(userIdToRemove)
+    // 아래 함수에서 요청이 잘 처리되었을 때 함수 내에서 setState 호출 예정
+    // this.deleteFriend(userIdToRemove);
     this.setState(newState);
   }
 
