@@ -6,7 +6,6 @@ export default class myRecord extends Component {
   }
   template() {
     return `
-    <div>${this.$state.friends}</div>
     <h3>
       My Record
     </h3>

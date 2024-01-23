@@ -18,10 +18,10 @@ export default class Profile extends Component {
     <div class="main-box">
       <div class="btn-box">
         <input type="radio" class="btn-check" name="options" id="radio1" autocomplete="off" ${this.$state.isMyProfileChecked} > 
-          <label class="btn btn" for="radio1" ">내 정보 수정</label>
+          <label class="btn btn-primary" for="radio1" ">내 정보 수정</label>
         </input>
         <input type="radio" class="btn-check" name="options" id="radio2" autocomplete="off"  ${this.$state.isMyRecordChecked}>
-        <label class="btn btn" for="radio2" >내 기록</label>
+        <label class="btn btn-primary" for="radio2" >내 기록</label>
         </input>
       </div>
         <div data-component='ProfileContainer' class="content-container"/>
