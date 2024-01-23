@@ -46,7 +46,7 @@ export default class Main extends Component {
       // const authorizationEndpoint = 'https://api.intra.42.fr/oauth/authorize';
       // const authorizationUrl = `${authorizationEndpoint}?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code`;
       // 위 방법으로 만들어진 Url은 42api에서 제대로 응답하지 않음, client ID등 환경 변수로 관리할 예정이었으나 해당 부분 회의 필요
-      const authorizationUrl = `https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-b677e803809d207e81ae3a321bdf542af8d318ca330d81824e4b972bca224918&redirect_uri=http%3A%2F%2F127.0.0.1&response_type=code`;
+      const authorizationUrl = `https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-b677e803809d207e81ae3a321bdf542af8d318ca330d81824e4b972bca224918&redirect_uri=http%3A%2F%2F127.0.0.1%3A3000&response_type=code`;
       window.location.href = authorizationUrl;
   }
 
