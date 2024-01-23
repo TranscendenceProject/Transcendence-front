@@ -66,16 +66,14 @@ export default class Otp extends Component {
 
   async handleButtonClick() {
     console.log(this.$state.otpString.join(''));
-
-    
-    const jwtTokenEndpoint = 'http://127.0.0.1:8000/users/verify/';
-    const requestData = {
+    const url = 'http://127.0.0.1:8000/users/verify/';
+    const body = {
       access_token: `${localStorage.getItem('access_token')}`,
       input_number: `${this.$state.otpString.join('')}`,
     };
     
     try {
-      const response = await api.post(jwtTokenEndpoint, requestData);
+      const response = await api.post(url, body);
       console.log(response)
       if (response.status === 'NO') {
         this.$state.otpString = ['', '', '', '', '', ''];

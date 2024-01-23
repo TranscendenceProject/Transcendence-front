@@ -46,9 +46,8 @@ export default class MyProfile extends Component {
         </div>
       </div>
     </div>
-    `
+    `;
   }
-  
   
   setEvent() {
   this.addEvent("click", "#saveButton", ({ target }) => {

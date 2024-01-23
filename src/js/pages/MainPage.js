@@ -17,7 +17,7 @@ export default class Main extends Component {
         <button id="login-button">Login</button>
       </div>
       `;
-      }
+    }
       return `
       <div class="main-box">
       ${loginOrGameContent}
@@ -26,15 +26,9 @@ export default class Main extends Component {
       `;
   }
 
-  moveFortyTwoOAuth() {
-    const authorizationUrl = `https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-b677e803809d207e81ae3a321bdf542af8d318ca330d81824e4b972bca224918&redirect_uri=http%3A%2F%2F127.0.0.1&response_type=code`;
-    window.location.href = authorizationUrl;
-  }
-
   setEvent() {
-    this.addEvent("click", "#login-Button", ({ target }) => {
-      this.moveFortyTwoOAuth();
-    });
+    this.addEvent("click", "#login-Button", () => this.moveFortyTwoOAuth());
+
     document.addEventListener("DOMContentLoaded", () => {
       const urlParams = new URLSearchParams(window.location.search);
       const authCode = urlParams.get("code");
@@ -58,16 +52,18 @@ export default class Main extends Component {
 
   async authenticateUser(authCode) {
     try {
-      const response = await api.get(`http://127.0.0.1:8000/users/create/${authCode}/`);
+      const url = `http://127.0.0.1:8000/users/create/${authCode}/`;
+      const response = await api.get(url);
       console.log(response);
       console.log(response.message);
       console.log(response.access_token);
+
       if (response.message === "token_response is not 200") {
         // 새로고침 시 함수를 다시 실행하지 않도록 params값을 제거
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.delete("code");
         window.history.replaceState({}, document.title, "#/");
-        alert("로그인 실패");
+        alert("로그인 실패");s
       } else {
         localStorage.setItem("access_token", response.access_token);
         // OTP 컴포넌트가 있는 로그인 페이지로 이동
