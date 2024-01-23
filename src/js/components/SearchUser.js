@@ -40,7 +40,8 @@ export default class SearchUser extends Component {
   }
 
   setEvent() {
-    this.addEvent('click', '.searchButton', (e) => this.handleSearchButtonClick(e));
+    this.addEvent('click', '.searchButton', () => this.handleSearchButtonClick());
+    this.addEvent('click', '.addButton', (e) => this.handleAddButtonClick(e));
   }
 
   handleSearchButtonClick() {
@@ -76,6 +77,20 @@ export default class SearchUser extends Component {
     // });
   }
 
+  handleAddButtonClick(e) {
+    const targetUserId = e.target.dataset.userId;
+    const targetUser = this.$state.users.find(user => user.user_id === targetUserId);
+    const updatedUser = { ...targetUser, is_friend: 'true' };
+    const newState = {
+      ...this.$state,
+      users: this.$state.users.map(user => (user.user_id === targetUserId ? updatedUser : user)),
+    };
+
+    // 아래 함수에서 요청이 잘 처리되었을 때 함수 내에서 setState 호출 예정
+    // this.addFriend(targetUserId);
+    this.setState(newState);
+  }
+
   async searchUser(searchValue) {
     const url = `http://127.0.0.1:8000/friends/search?query=${searchInput}`;
     const token = localStorage.getItem('token');
@@ -87,6 +102,19 @@ export default class SearchUser extends Component {
       this.setState({
         users: response.users,
       });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  async addFriend(targetUserId) {
+    const url = `http://127.0.0.1:8000/friends/add?user_id=${targetUserId}`;
+    const token = localStorage.getItem('token');
+    const headers = { 'JWT': token };
+    try {
+      const response = await api.post(url, headers);
+      alert("추가 성공!");
+      //추후 응답 코드에 따라 동작 추가 예정
     } catch (error) {
       console.error('Error fetching data:', error);
     }
