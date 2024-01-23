@@ -53,7 +53,7 @@ export default class MyProfile extends Component {
   this.addEvent("click", "#saveButton", ({ target }) => {
       this.inputChange();
     });
-    this.addEvent("click", "#editButton", ({ target }) => {
+    this.addEvent("change", "#inputProfile", ({ target }) => {
       this.editButton();
     });
   }
@@ -74,7 +74,6 @@ export default class MyProfile extends Component {
     
     const newImg = document.getElementById("inputProfile");
     if (newImg.files.length > 0) {
-      
       console.log(newImg);
       let maxSize = 4 * 1024 * 1024; //* 5MB 사이즈 제한
       let fileSize = newImg.files; //업로드한 파일용량
