@@ -1,5 +1,3 @@
-import { c } from "docker/src/languages";
-
 const parseResponse = async (response) => {
 	const { status } = response;
 	let data;
@@ -30,6 +28,7 @@ const request = async (params) => {
 		console.log(config.body);
 	}
 	else  {
+		console.log("this");
 		config.body = JSON.stringify(body);
 	}
 	const response = await window.fetch(url, config);

@@ -61,10 +61,12 @@ export default class MyProfile extends Component {
   inputChange() {
     const newName = document.getElementById("inputName").value;
     const newBio = document.getElementById("inputBio").value;
+    console.log(newName,newBio);
     this.setState({
       name: newName, 
       bio: newBio,
       });
+      console.log(this.$state)
     this.postUserData();
     console.log(this.$state);
   }
@@ -95,7 +97,8 @@ export default class MyProfile extends Component {
     // for (var pair of profile_form.entries()) {
     //   console.log(pair[0]+ ', ' + pair[1]); 
     // }
-    const img_url = this.PostUserImg(profile_form);
+    const img_url = 'http://127.0.0.1:8000'+ this.PostUserImg(profile_form);
+    console.log(img_url)
     this.setState({
       img_url: img_url.file_url,
     });
@@ -124,19 +127,19 @@ export default class MyProfile extends Component {
   }
 
   async postUserData() {
-    const user_id = localStorage.getItem('user_id');
     const url = 'http://127.0.0.1:8000/users/info/update'
     const token = localStorage.getItem('token');
-    const headers = { 'JWT': token };
-    let profile_form = new FormData();
-    profile_form.append('intra_pk_id', this.$state.user_id);
-    profile_form.append('intra_id', this.$state.intra_id);
-    profile_form.append('nick_name', this.$state.name);
-    profile_form.append('profile_picture', this.$state.img_url);
-    profile_form.append('bio', this.$state.bio);
-    
-    const body = profile_form;
+    const headers = { 'JWT': token , "Content-Type": 'application/json'};
+    console.log(this.$state)
+    const body = {
+      user_id: this.$state.user_id,
+      intra_id: this.$state.intra_id,
+      nick_name: this.$state.name,
+      bio: this.$state.bio,
+      img_url: this.$state.profile_picture,
+    }
     console.log(body)
+
     try {
       const response = await api.post(url, body, headers);
     } catch (error) {
