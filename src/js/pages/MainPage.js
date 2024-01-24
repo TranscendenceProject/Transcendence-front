@@ -4,8 +4,8 @@ import api from "../api/http.js";
 export default class MainPage extends Component {
   template() {
     let loginOrGameContent = "";
-    const loginState = localStorage.getItem("loginState");
-    if (loginState === "true") {
+    const JWT = localStorage.getItem("token");
+    if (JWT) {
       loginOrGameContent = `
       <div class="btn-box">
       <a class="btn btn-primary" href="#/game" role="button">게임플레이</a>

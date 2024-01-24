@@ -94,7 +94,7 @@ export default class SearchUser extends Component {
   async searchUser(searchValue) {
     const url = `http://127.0.0.1:8000/friends/search?query=${searchInput}`;
     const token = localStorage.getItem('token');
-    const headers = { 'token': token };
+    const headers = { 'JWT': token };
 
     try {
       const response = await api.get(url, headers);

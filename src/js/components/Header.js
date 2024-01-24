@@ -26,9 +26,8 @@ export default class header extends Component {
 
   setEvent() {
     this.addEvent('click', '.logout', ({ target }) => {
-      localStorage.setItem('loginState', 'false');
+      localStorage.removeItem('token');
       window.location.href = `http://127.0.0.1:3000`;
-      // window.location.href = `#/`;
     });
   }
 }
