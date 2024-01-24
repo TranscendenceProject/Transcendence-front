@@ -3,7 +3,7 @@ import MyProfile from '../components/MyProfile.js';
 import MyRecord from '../components/MyRecord.js';
 
 
-export default class Profile extends Component {
+export default class ProfilePage extends Component {
   setup() {
     this.$state = {
       currentMenu: 'myRecord',

@@ -2,7 +2,7 @@ import Component from '../core/Component.js';
 import SearchUser from '../components/searchUser.js';
 import ManageFriend from '../components/manageFriend.js';
 
-export default class Login extends Component {
+export default class FriendPage extends Component {
 
   setup() {
     this.$state = {
