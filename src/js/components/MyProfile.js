@@ -4,7 +4,7 @@ import api from '../api/http.js';
 export default class MyProfile extends Component {
   constructor($target, $props) {
     super($target, $props);
-    // this.getUserData();
+    this.getUserData();
   }
 
   setup() {
@@ -35,7 +35,7 @@ export default class MyProfile extends Component {
         <div id ="profile-img-box">
           <h4>profile picture</h4>
           <img id = "imgProfile" src=${this.$state.img_url}>
-          <input type="file" id = "inputProfile"  style= "display:none;" accept="image/*" >
+          <input type="file" id = "inputProfile"  style= "display:none;" accept=".jpg" >
           </img>
           <label class="btn btn-warning" id="editButton" for="inputProfile">
           edit
@@ -65,7 +65,7 @@ export default class MyProfile extends Component {
       name: newName, 
       bio: newBio,
       });
-    // this.postUserData();
+    this.postUserData();
     console.log(this.$state);
   }
   
@@ -73,27 +73,35 @@ export default class MyProfile extends Component {
     console.log("edit button clicked");
     
     const newImg = document.getElementById("inputProfile");
+    let profile_form = new FormData();
     if (newImg.files.length > 0) {
-      console.log(newImg);
+      console.log(newImg.files[0], newImg.files[0].name);
       let maxSize = 4 * 1024 * 1024; //* 5MB 사이즈 제한
-      let fileSize = newImg.files; //업로드한 파일용량
-      let fileSize2 = newImg.files[0].size; //업로드한 파일용량
+      let fileSize = newImg.files[0].size; //업로드한 파일용량
       console.log(fileSize)
-      console.log(fileSize2);
+
+
+
+      profile_form.append("profile_image",  newImg.files[0], newImg.files[0].name);
+      // profile_form.append("comment", newImg.files[0].commentValue);
+    
+
       if(fileSize > maxSize){
         alert("파일첨부 사이즈는 4MB 이내로 가능합니다.");
         newImg.value = "";
         return; 
       }
 	}
-
-    const {img_url} = this.PostUserImg(newImg.value);
+    // for (var pair of profile_form.entries()) {
+    //   console.log(pair[0]+ ', ' + pair[1]); 
+    // }
+    const img_url = this.PostUserImg(profile_form);
     this.setState({
-      img_url: img_url,
+      img_url: img_url.file_url,
     });
   }
 
-  async GetUserData() {
+  async getUserData() {
     const url = `http://127.0.0.1:8000/users/info/read`;
 
     const token = localStorage.getItem('token');
@@ -101,7 +109,7 @@ export default class MyProfile extends Component {
 
     try {
       const response = await api.get(url, headers);
-      console.log(response);
+      // console.log(response);
       // 가져온 데이터로 상태 업데이트
       this.setState({
         user_id: response.intra_pk_id,
@@ -136,18 +144,16 @@ export default class MyProfile extends Component {
     }
   }
   
-  async PostUserImg(Img) {
+  async PostUserImg(body) {
     const url = 'http://127.0.0.1:8000/users/info/update/image';
-
+    // for (var pair of body.entries()) {
+    //   console.log(pair[0]+ ', ' + pair[1].name); 
+    // }
     const token = localStorage.getItem('token');
-    const headers = { 'JWT': token };
-    let profile_form = new FormData();
-    profile_form.append('profile_image', Img);
-    
-    const body = profile_form;
-    console.log(body)
+    const headers = { 'JWT': token, 'Accept': 'application/json', };
     try {
       const response = await api.post(url, body, headers);
+      console.log(response);
       return response;
     } catch (error) {
       console.error('Error fetching data:', error);

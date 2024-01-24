@@ -162,7 +162,7 @@ li {
 }
 
 .single-chart {
-    width: 33%;
+    width: 60%;
     justify-content: space-around ;
   }
   
@@ -318,13 +318,26 @@ li {
   display: flex;
 }
 
-/* #record-list-box {
-} */
+#record-list-box {
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+}
 
 #record-circle-box {
   display: flex;
   flex-direction: column;
-  /* width: 500px; */
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  width: 150px;
+  height: auto;
+  /* padding-bottom: 1rem; */
+  /* padding-top: 1rem; */
+}
+
+#imgRecord {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  /* border: 10px solid #ccc; */
+  background-color: #d9d9d9;
 }

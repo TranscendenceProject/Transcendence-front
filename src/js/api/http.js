@@ -1,3 +1,5 @@
+import { c } from "docker/src/languages";
+
 const parseResponse = async (response) => {
 	const { status } = response;
 	let data;
@@ -19,10 +21,17 @@ const request = async (params) => {
 		headers: new window.Headers(headers),
 	};
 
-	if (body) {
+
+	if (headers['Accept']) {
+		if (headers['Accept'] === 'application/json') config.body = body;
+
+		// 여기서 문제 발생 -> img 파일을 보낼때 멀티파트 폼데이터를 써야하고 그때 헤더에 content-type을 multipart/form-data로 설정해야함 -> 근데 에러나는데 알아서 처리해준대요 -> 그래서 그냥 헤더에 content-type을 설정 안해줬음 
+		// 멀티파트 폼데이터를 쓸떄는 body를 json.stringify를 하면 안됨 -> 그냥 body에 넣어주면 됨 근데 그거에 대한 조건을 뭘로 해야하는지 모르겠음 그래서 일단 헤더에서 accept === 'application/json'이라고 쓰긴했는데 이거 쓰는 다른 api에서 오류생길듯
+		console.log(config.body);
+	}
+	else  {
 		config.body = JSON.stringify(body);
 	}
-
 	const response = await window.fetch(url, config);
 
 	return parseResponse(response);
@@ -46,6 +55,7 @@ const post = async (url, body, headers) => {
 		method: 'POST',
 		body,
 	});
+	console.log(response)
 	return response.data;
 };
 
