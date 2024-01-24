@@ -1,6 +1,6 @@
 import Component from '../core/Component.js';
-import SearchUser from '../components/searchUser.js';
-import ManageFriend from '../components/manageFriend.js';
+import SearchUser from '../components/SearchUser.js';
+import ManageFriend from '../components/ManageFriend.js';
 
 export default class FriendPage extends Component {
 
