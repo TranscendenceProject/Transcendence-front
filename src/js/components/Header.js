@@ -24,11 +24,17 @@ export default class header extends Component {
     `;
   }
 
+  mounted() {
+    const JWT = localStorage.getItem('token');
+    const dropdown = document.querySelector('.nav-item.dropdown');
+
+    dropdown.style.display = JWT ? 'block' : 'none';
+  }
+
   setEvent() {
     this.addEvent('click', '.logout', ({ target }) => {
-      localStorage.setItem('loginState', 'false');
+      localStorage.removeItem('token');
       window.location.href = `http://127.0.0.1:3000`;
-      // window.location.href = `#/`;
     });
   }
 }

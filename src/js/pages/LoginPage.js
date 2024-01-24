@@ -2,7 +2,7 @@ import Component from '../core/Component.js';
 import Otp from '../components/Otp.js';
 
 
-export default class Login extends Component {
+export default class LoginPage extends Component {
   template() {
     return `
 
@@ -15,5 +15,5 @@ export default class Login extends Component {
       "[data-component='Otp']"
     );
     new Otp($otp);
-    }
+  }
 }

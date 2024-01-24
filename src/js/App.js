@@ -2,6 +2,7 @@ import Component from "./core/Component.js";
 import Header from "./components/Header.js";
 import createPages from "./pages/index.js";
 import Router from "./Router.js";
+import api from "./api/http.js";
 
 export default class App extends Component {
     template() {
@@ -30,8 +31,25 @@ export default class App extends Component {
         router.addRoute("#/game/tournamentGame", pages.tournamentGame);
 
         router.start();
+
+        setInterval(this.notifyLogin, 5000);
+    }
+
+    async notifyLogin() {
+        const url = `http://127.0.0.1:8000/loginHistories/create`;
+        const token = localStorage.getItem('token');
+        const headers = { 'JWT': token };
+
+        try {
+            if (token) {
+                const response = await api.post(url, {}, headers);
+            }
+        } catch (error) {
+        console.error('Error fetching data:', error);
+        }
     }
 }
+
 
 // login state를 app.js에 두고 바꾸는 거는 loginpage내부에 otp component에서 바꿀거임 그걸 app.js로 올려서 setstate를 할거임 그걸 router가 인자로 받아서 router에서 login -> false면 home으로 보내고 true면 맞는 페이지로 보낼거임
 

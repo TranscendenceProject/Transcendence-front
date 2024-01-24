@@ -1,7 +1,16 @@
 const parseResponse = async (response) => {
 	const { status } = response;
 	let data;
-	if (status !== 204) {
+	
+	if (status == 400 || status == 401) {
+		localStorage.removeItem('token');
+		alert("만료된 로그인 정보입니다 다시 로그인해 주십시오")
+		window.location.href = `http://127.0.0.1:3000`;
+	} else if (status == 404) {
+		localStorage.removeItem('token');
+		alert("잘못된 접근입니다 다시 로그인해 주십시오")
+		window.location.href = `http://127.0.0.1:3000`;
+	} else if (status !== 204) {
 		data = await response.json();
 	}
 

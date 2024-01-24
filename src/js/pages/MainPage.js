@@ -1,11 +1,11 @@
 import Component from "../core/Component.js";
 import api from "../api/http.js";
 
-export default class Main extends Component {
+export default class MainPage extends Component {
   template() {
     let loginOrGameContent = "";
-    const loginState = localStorage.getItem("loginState");
-    if (loginState === "true") {
+    const JWT = localStorage.getItem("token");
+    if (JWT) {
       loginOrGameContent = `
       <div class="btn-box">
       <a class="btn btn-primary" href="#/game" role="button">게임플레이</a>
@@ -58,12 +58,9 @@ export default class Main extends Component {
       console.log(response.message);
       console.log(response.access_token);
 
-      if (response.message === "token_response is not 200") {
-        // 새로고침 시 함수를 다시 실행하지 않도록 params값을 제거
-        const urlParams = new URLSearchParams(window.location.search);
-        urlParams.delete("code");
-        window.history.replaceState({}, document.title, "#/");
-        alert("로그인 실패");s
+      if (response.message === "Token response is not 200") {
+        alert("로그인 실패");
+        window.history.replaceState({}, null, location.pathname);
       } else {
         localStorage.setItem("access_token", response.access_token);
         // OTP 컴포넌트가 있는 로그인 페이지로 이동
