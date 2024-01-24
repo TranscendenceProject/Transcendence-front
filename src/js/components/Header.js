@@ -24,6 +24,13 @@ export default class header extends Component {
     `;
   }
 
+  mounted() {
+    const JWT = localStorage.getItem('token');
+    const dropdown = document.querySelector('.nav-item.dropdown');
+
+    dropdown.style.display = JWT ? 'block' : 'none';
+  }
+
   setEvent() {
     this.addEvent('click', '.logout', ({ target }) => {
       localStorage.removeItem('token');

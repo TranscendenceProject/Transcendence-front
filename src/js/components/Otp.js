@@ -83,7 +83,7 @@ export default class Otp extends Component {
         localStorage.setItem('token', token);
         localStorage.setItem('loginState', 'true');
         console.log(`로그인 성공!\njwt_token: ${localStorage.getItem('token')}`);
-        window.location.href = `#/`;
+        window.location.href = `http://127.0.0.1:3000`;
       }
     } catch (error) {
       console.error('Error: ', error.message);

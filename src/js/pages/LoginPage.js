@@ -15,5 +15,5 @@ export default class LoginPage extends Component {
       "[data-component='Otp']"
     );
     new Otp($otp);
-    }
+  }
 }
