@@ -19,9 +19,6 @@ export default class MyProfile extends Component {
   }
   template() {
     return `
-    <h3>
-    Public Profile
-    </h3>
     <div id = "profile-box">
       <div id ="profile-text-box">
         <h4>Intra id</h4>

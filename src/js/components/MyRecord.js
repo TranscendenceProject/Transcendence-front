@@ -17,52 +17,209 @@ export default class myRecord extends Component {
       histories: [{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "raichuchu",
+        "nick_name": "1",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "2",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "3",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 5,
+        "opponent_score": 2,
         "game_result": "win"
       },{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "raichuchu",
+        "nick_name": "4",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
-        "game_result": "win"
+        "game_result": "lose"
       },{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "raichuchu",
+        "nick_name": "5",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
-        "game_result": "win"
+        "game_result": "lose"
       },{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "raichuchu",
+        "nick_name": "6",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
-        "game_result": "win"
+        "game_result": "lose"
       },{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "raichuchu",
+        "nick_name": "6",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
-        "game_result": "win"
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
+      },{
+        "intra_pk_id": "kjaeifsdfsdf",
+        "intra_id": "raichu",
+        "nick_name": "6",
+        "start_time": "2024-01-19T17:32:28Z",
+        "score": 4,
+        "opponent_score": 7,
+        "game_result": "lose"
       }]
     };
   }
 
   template() {
     return `
-    <h3>
-      My Record
-    </h3>
     <div id="record-box">
       <div id="record-profile-box">
         <div>
@@ -70,21 +227,22 @@ export default class myRecord extends Component {
           <div>${this.$state.intra_id}(${this.$state.nick_name})</div>
         </div>
         <div id="record-circle-box">
-          <div id="record-circle-text">0승 0패</div>
+          <div id="record-circle-text">${this.calculateWinRate()[0]}승 ${this.calculateWinRate()[1]}패 </div>
           <div id="record-circle">
             <div data-component='PercentageCircle'></div>
           </div>
         </div>
       </div>
-      <hr>
       <div id="record-list-box">
           ${this.$state.histories.map((history) => `
-            <div class="record-list-item">
-              <div class="record-list-item-date">${history.start_time}</div>
-              <div class="record-list-item-opponent">${history.name}</div>
-              <div class="record-list-item-result">${history.game_result}</div>
+              <div id="record-item">
+                <div id="record-item-text">vs ${history.intra_id} (${history.nick_name})</div>
+                <div class="column-line"></div>
+                <div id="record-item-text">${this.dateFormat(history.start_time)}</div>                
+                <div class="column-line"></div>
+                <div id="record-item-text">${history.score} : ${history.opponent_score} ${history.game_result}</div>
+              </div>
               <hr>
-            </div>
           `).join('')}
       </div>
     </div>
@@ -94,31 +252,52 @@ export default class myRecord extends Component {
     const $PercentageCircle = this.$target.querySelector(
       "[data-component='PercentageCircle']"
     );
-    new PercentageCircle($PercentageCircle, {percentage:70});
+    new PercentageCircle($PercentageCircle, {percentage: Math.floor(this.calculateWinRate()[0] / (this.calculateWinRate()[0] + this.calculateWinRate()[1]) * 100)});
     }
+  
+  calculateWinRate() {
+    const winCount = this.$state.histories.filter((history) => history.game_result === 'win').length;
+    const totalCount = this.$state.histories.length;
+    return ([winCount, totalCount - winCount]);
+  }  
+  dateFormat(inputDateStr) {
+    const inputDate = new Date(inputDateStr);
 
-    async getUserData() {
-      const url = `http://127.0.0.1:8000/users/info/read`;
-  
-      const token = localStorage.getItem('token');
-      const headers = { 'JWT': token };
-  
-      try {
-        const response = await api.get(url, headers);
-        console.log(response)
-        // console.log(response);
-        // 가져온 데이터로 상태 업데이트
-        this.setState({
-          intra_pk_id: response.intra_pk_id,
-          intra_id: response.intra_id,
-          nick_name: response.nick_name,
-          bio: response.bio,
-          profile_picture: response.profile_picture,
-          // histories: response.histories,
-        });
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+
+    const outputFormat = new Intl.DateTimeFormat('en-GB', {
+      year: '2-digit',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'UTC'
+    });
+
+    return outputFormat.format(inputDate);
+  }
+
+  async getUserData() {
+    const url = `http://127.0.0.1:8000/users/info/read`;
+
+    const token = localStorage.getItem('token');
+    const headers = { 'JWT': token };
+
+    try {
+      const response = await api.get(url, headers);
+      console.log(response)
+      // console.log(response);
+      // 가져온 데이터로 상태 업데이트
+      this.setState({
+        intra_pk_id: response.intra_pk_id,
+        intra_id: response.intra_id,
+        nick_name: response.nick_name,
+        bio: response.bio,
+        profile_picture: response.profile_picture,
+        // histories: response.histories,
+      });
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
+  }
 }
 
