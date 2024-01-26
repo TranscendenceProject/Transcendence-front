@@ -1,22 +1,23 @@
 import Component from "../core/Component.js";
+import api from "../api/http.js";
 
 export default class SearchUser extends Component {
   setup() {
     this.$state = {
       user_profiles: [
-        {
-          intra_pk_id: '1',
-          intra_id: 'seunghwk',
-          nick_name: 'seunghwk',
-          is_login: true,
-          is_friend: false
-        },
-        {
-          intra_pk_id: '1',
-          intra_id: 'gsong',
-          is_login: false,
-          is_friend: true
-        },
+        // {
+        //   intra_pk_id: '1',
+        //   intra_id: 'seunghwk',
+        //   nick_name: 'seunghwk',
+        //   is_login: true,
+        //   is_friend: false
+        // },
+        // {
+        //   intra_pk_id: '1',
+        //   intra_id: 'gsong',
+        //   is_login: false,
+        //   is_friend: true
+        // },
       ],
     };
   }
@@ -50,7 +51,7 @@ export default class SearchUser extends Component {
     const searchValue = searchInput.value;
 
     console.log('검색어:', searchValue);
-    // this.searchUser(searchValue);
+    this.searchUser(searchValue);
 
 
     // // 테스트 코드
@@ -88,12 +89,12 @@ export default class SearchUser extends Component {
     };
 
     // 아래 함수에서 요청이 잘 처리되었을 때 함수 내에서 setState 호출 예정
-    // this.addFriend(targetUserId);
+    this.addFriend(targetUserId);
     this.setState(newState);
   }
 
   async searchUser(searchValue) {
-    const url = `http://127.0.0.1:8000/friends/search?key_word=${searchValue}`;
+    const url = `http://127.0.0.1:8000/users/info/search?key_word=${searchValue}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
 
@@ -109,13 +110,11 @@ export default class SearchUser extends Component {
   }
 
   async addFriend(targetUserId) {
-    const url = `http://127.0.0.1:8000/friends/add?intra_pk_id=${targetUserId}`;
+    const url = `http://127.0.0.1:8000/friends/add?friend_intra_pk_id=${targetUserId}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
     try {
-      const response = await api.post(url, headers);
-      alert("추가 성공!");
-      //추후 응답 코드에 따라 동작 추가 예정
+      const response = await api.post(url,{}, headers);
     } catch (error) {
       console.error('Error fetching data:', error);
     }

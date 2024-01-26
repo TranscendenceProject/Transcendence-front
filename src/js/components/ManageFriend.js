@@ -4,22 +4,22 @@ import api from "../api/http.js";
 export default class ManageFriend extends Component {
   constructor($target, $props) {
     super($target, $props);
-    // this.getFriendsList();
+    this.getFriendsList();
   } 
 
   setup() {
     this.$state = {
       friends: [
-        {
-          intra_pk_id: "1",
-          friend_name: "seunghwk",
-          is_login: true,
-        },
-        {
-          intra_pk_id: '2',
-          friend_name: 'gsong',
-          is_login: false,
-        },
+        // {
+        //   intra_pk_id: "1",
+        //   friend_name: "seunghwk",
+        //   is_login: true,
+        // },
+        // {
+        //   intra_pk_id: '2',
+        //   friend_name: 'gsong',
+        //   is_login: false,
+        // },
       ],
     };
   }
@@ -51,7 +51,7 @@ export default class ManageFriend extends Component {
     };
 
     // 아래 함수에서 요청이 잘 처리되었을 때 함수 내에서 setState 호출 예정
-    // this.deleteFriend(userIdToRemove);
+    this.deleteFriend(userIdToRemove);
     this.setState(newState);
   }
 
@@ -71,7 +71,7 @@ export default class ManageFriend extends Component {
   }
 
   async deleteFriend(targetUserId) {
-    const url = `http://127.0.0.1:8000/friends/delete?intra_pk_id=${targetUserId}`;
+    const url = `http://127.0.0.1:8000/friends/delete?friend_intra_pk_id=${targetUserId}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
     try {
