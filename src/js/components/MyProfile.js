@@ -74,6 +74,7 @@ export default class MyProfile extends Component {
   inputChange() {
     const newName = document.getElementById("inputName").value;
     const newBio = document.getElementById("inputBio").value;
+    console.log(newBio)
     this.setState({
       nick_name: newName, 
       bio: newBio,
@@ -148,6 +149,7 @@ export default class MyProfile extends Component {
 
     try {
       const response = await api.post(url, body, headers);
+      console.log(response)
       this.setState({
         check_message: "저장 완료",
       });
@@ -163,7 +165,8 @@ export default class MyProfile extends Component {
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token, 'Accept': 'application/json', };
     try {
-      const response = await api.post(url, body, headers);      
+      const response = await api.post(url, body, headers);
+      
       return ('http://127.0.0.1:8000'+response.file_url);
       // return response.data.file_url;
     } catch (error) {

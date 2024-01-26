@@ -32,7 +32,7 @@ export default class App extends Component {
 
         router.start();
 
-        // setInterval(this.notifyLogin, 5000);
+        setInterval(this.notifyLogin, 5000);
     }
 
     async notifyLogin() {
