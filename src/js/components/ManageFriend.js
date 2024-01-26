@@ -11,14 +11,14 @@ export default class ManageFriend extends Component {
     this.$state = {
       friends: [
         {
-          user_id: "1",
-          intra_id: "seunghwk",
-          login_status: "true",
+          intra_pk_id: "1",
+          friend_name: "seunghwk",
+          is_login: true,
         },
         {
-          user_id: '2',
-          intra_id: 'gsong',
-          login_status: "false",
+          intra_pk_id: '2',
+          friend_name: 'gsong',
+          is_login: false,
         },
       ],
     };
@@ -30,9 +30,9 @@ export default class ManageFriend extends Component {
       <h2>친구 관리</h2>
       <div> ${this.$state.friends.map(user => `
         <div>
-          <p>Intra ID: ${user.intra_id}</p>
-          <p>로그인 상태: ${user.login_status === "true" ? '로그인 중' : '로그아웃'}</p>
-          <button class="deleteButton" data-user-id="${user.user_id}">친구 삭제</button>
+          <p>Intra ID: ${user.friend_name}</p>
+          <p>로그인 상태: ${user.is_login === true ? '로그인 중' : '로그아웃'}</p>
+          <button class="deleteButton" data-user-id="${user.intra_pk_id}">친구 삭제</button>
         </div>
       `).join('')}</div>
     </div>
@@ -47,7 +47,7 @@ export default class ManageFriend extends Component {
     const userIdToRemove = e.target.dataset.userId;
     const newState = {
       ...this.$state,
-      friends: this.$state.friends.filter(user => user.user_id !== userIdToRemove),
+      friends: this.$state.friends.filter(user => user.intra_pk_id !== userIdToRemove),
     };
 
     // 아래 함수에서 요청이 잘 처리되었을 때 함수 내에서 setState 호출 예정
@@ -71,7 +71,7 @@ export default class ManageFriend extends Component {
   }
 
   async deleteFriend(targetUserId) {
-    const url = `http://127.0.0.1:8000/friends/delete?user_id=${targetUserId}`;
+    const url = `http://127.0.0.1:8000/friends/delete?intra_pk_id=${targetUserId}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
     try {

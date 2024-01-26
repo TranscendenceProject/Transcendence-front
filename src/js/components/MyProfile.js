@@ -70,14 +70,11 @@ export default class MyProfile extends Component {
   inputChange() {
     const newName = document.getElementById("inputName").value;
     const newBio = document.getElementById("inputBio").value;
-    console.log(newName,newBio);
     this.setState({
       nick_name: newName, 
       bio: newBio,
       });
-      console.log(this.$state)
     this.postUserData();
-    console.log(this.$state);
   }
   
   async editButton() {
@@ -86,10 +83,8 @@ export default class MyProfile extends Component {
     const newImg = document.getElementById("inputProfile");
     let profile_form = new FormData();
     if (newImg.files.length > 0) {
-      console.log(newImg.files[0], newImg.files[0].name);
       let maxSize = 4 * 1024 * 1024; //* 5MB 사이즈 제한
       let fileSize = newImg.files[0].size; //업로드한 파일용량
-      console.log(fileSize)
 
 
 
@@ -103,12 +98,9 @@ export default class MyProfile extends Component {
         return; 
       }
 	}
-    // for (var pair of profile_form.entries()) {
-    //   console.log(pair[0]+ ', ' + pair[1]); 
-    // }
+  
     try {
       const profile_picture = await this.PostUserImg(profile_form);
-      console.log(profile_picture);
       this.setState({
         profile_picture: profile_picture,
       });
@@ -125,8 +117,6 @@ export default class MyProfile extends Component {
 
     try {
       const response = await api.get(url, headers);
-      // console.log(response);
-      // 가져온 데이터로 상태 업데이트
       this.setState({
         intra_pk_id: response.intra_pk_id,
         intra_id: response.intra_id,
@@ -143,7 +133,6 @@ export default class MyProfile extends Component {
     const url = 'http://127.0.0.1:8000/users/info/update'
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token , "Content-Type": 'application/json'};
-    console.log(this.$state)
     const body = {
       intra_pk_id: this.$state.intra_pk_id,
       intra_id: this.$state.intra_id,
@@ -151,7 +140,6 @@ export default class MyProfile extends Component {
       bio: this.$state.bio,
       profile_picture: this.$state.profile_picture,
     }
-    console.log(body)
 
     try {
       const response = await api.post(url, body, headers);

@@ -6,8 +6,8 @@ import MyRecord from '../components/MyRecord.js';
 export default class ProfilePage extends Component {
   setup() {
     this.$state = {
-      currentMenu: 'myRecord',
-      // currentMenu: 'default',
+      // currentMenu: 'myRecord',
+      currentMenu: 'default',
       isMyProfileChecked: "",
       isMyRecordChecked: "",
     };
@@ -24,7 +24,10 @@ export default class ProfilePage extends Component {
         <label class="btn btn-primary" for="radio2" >내 기록</label>
         </input>
       </div>
-        <div data-component='ProfileContainer' class="content-container"/>
+      <div>
+      </div>
+        ${this.$state.currentMenu === 'default' ? '<img class="pikachu-image" src="../assets/background_1.jpeg"></img>': "<div data-component='ProfileContainer' class='content-container'/>"}
+        
     </div>
       `;
   }
