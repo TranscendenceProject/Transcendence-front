@@ -4,7 +4,7 @@ const parseResponse = async (response) => {
 	
 	if (status == 400 || status == 401) {
 		localStorage.removeItem('token');
-		alert("만료된 로그인 정보입니다 다시 로그인해 주십시오")
+		alert("유효하지 않은 로그인 정보입니다 다시 로그인해 주십시오")
 		window.location.href = `http://127.0.0.1:3000`;
 	} else if (status == 404) {
 		localStorage.removeItem('token');
