@@ -8,13 +8,13 @@ export default class MyProfile extends Component {
   }
 
   setup() {
-    
     this.$state = {
       intra_pk_id: 'intra_pk_id',
       intra_id: 'intra_id',
       nick_name: 'nick_name',
       profile_picture: 'assets/logo.jpeg',
       bio: 'bio',
+      check_message: '',
     };
   }
   template() {
@@ -39,7 +39,8 @@ export default class MyProfile extends Component {
           </label>
         </div>
         <div id= "saveButtonBox">
-          <a class="btn btn-success" role="button" id ="saveButton">save</a>
+        <a class="btn btn-success" role="button" id ="saveButton">save</a>
+        <div id="saveMessage">${this.$state.check_message}</div>
         </div>
       </div>
     </div>
@@ -51,12 +52,15 @@ export default class MyProfile extends Component {
       const newName = document.getElementById("inputName").value;
       this.setState({
         nick_name: newName,
+        check_message: '',
+
       });
     });
     this.addEvent("change", "#inputBio", ({ target }) => {
       const newBio = document.getElementById("inputBio").value;
       this.setState({
         bio: newBio,
+        check_message: '',
       });
     });
     this.addEvent("click", "#saveButton", ({ target }) => {
@@ -100,9 +104,10 @@ export default class MyProfile extends Component {
 	}
   
     try {
-      const profile_picture = await this.PostUserImg(profile_form);
+      const file_url = await this.PostUserImg(profile_form);
       this.setState({
-        profile_picture: profile_picture,
+        profile_picture: file_url,
+        check_message: '',
       });
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -121,8 +126,8 @@ export default class MyProfile extends Component {
         intra_pk_id: response.intra_pk_id,
         intra_id: response.intra_id,
         nick_name: response.nick_name,
-        bio: response.bio,
         profile_picture: response.profile_picture,
+        bio: response.bio,
       });
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -143,6 +148,9 @@ export default class MyProfile extends Component {
 
     try {
       const response = await api.post(url, body, headers);
+      this.setState({
+        check_message: "저장 완료",
+      });
       return response;
     } catch (error) {
       console.error('Error fetching data:', error);

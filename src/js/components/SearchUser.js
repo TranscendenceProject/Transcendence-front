@@ -7,13 +7,14 @@ export default class SearchUser extends Component {
         {
           intra_pk_id: '1',
           intra_id: 'seunghwk',
-          login_status: true,
+          nick_name: 'seunghwk',
+          is_login: true,
           is_friend: false
         },
         {
           intra_pk_id: '1',
           intra_id: 'gsong',
-          login_status: false,
+          is_login: false,
           is_friend: true
         },
       ],
@@ -30,7 +31,7 @@ export default class SearchUser extends Component {
       <div> ${this.$state.user_profiles.map(user => `
         <div>
           <p>Intra ID: ${user.intra_id}</p>
-          <p>로그인 상태: ${user.login_status === true ? '로그인 중' : '로그아웃'}</p>
+          <p>로그인 상태: ${user.is_login === true ? '로그인 중' : '로그아웃'}</p>
           ${user.is_friend === true ?
           '<p>친구</p>' : `<button class="addButton" data-user-id="${user.intra_pk_id}">친구 추가</button>`}
         </div>
@@ -58,19 +59,19 @@ export default class SearchUser extends Component {
     //     {
     //       intra_pk_id: '1',
     //       intra_id: 'test',
-    //       login_status: 'true',
+    //       is_login: 'true',
     //       is_friend: 'false'
     //     },
     //     {
     //       intra_pk_id: '1',
     //       intra_id: 'test',
-    //       login_status: 'false',
+    //       is_login: 'false',
     //       is_friend: 'true'
     //     },
     //     {
     //       intra_pk_id: '1',
     //       intra_id: 'test',
-    //       login_status: 'false',
+    //       is_login: 'false',
     //       is_friend: 'true'
     //     },
     //   ],
@@ -92,7 +93,7 @@ export default class SearchUser extends Component {
   }
 
   async searchUser(searchValue) {
-    const url = `http://127.0.0.1:8000/friends/search?key_word=${searchInput}`;
+    const url = `http://127.0.0.1:8000/friends/search?key_word=${searchValue}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
 

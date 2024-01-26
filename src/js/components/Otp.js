@@ -68,8 +68,8 @@ export default class Otp extends Component {
     console.log(this.$state.otpString.join(''));
     const url = 'http://127.0.0.1:8000/users/login/verify';
     const body = {
-      access_token: `${localStorage.getItem('access_token')}`,
       input_number: `${this.$state.otpString.join('')}`,
+      access_token: `${localStorage.getItem('access_token')}`,
     };
     
     try {
@@ -82,7 +82,7 @@ export default class Otp extends Component {
         const token = response.jwt_token;
         localStorage.setItem('token', token);
         localStorage.setItem('loginState', 'true');
-        console.log(`로그인 성공!\njwt_token: ${localStorage.getItem('token')}`);
+
         window.location.href = `http://127.0.0.1:3000`;
       }
     } catch (error) {
