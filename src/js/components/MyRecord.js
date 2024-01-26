@@ -161,8 +161,8 @@ export default class myRecord extends Component {
         intra_pk_id: response.intra_pk_id,
         intra_id: response.intra_id,
         nick_name: response.nick_name,
-        bio: response.bio,
         profile_picture: response.profile_picture,
+        bio: response.bio,
         // histories: response.histories,
       });
     } catch (error) {

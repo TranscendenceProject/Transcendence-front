@@ -54,18 +54,10 @@ export default class MainPage extends Component {
     try {
       const url = `http://127.0.0.1:8000/users/login/create/${authCode}`;
       const response = await api.get(url);
-      console.log(response);
-      console.log(response.message);
-      console.log(response.access_token);
 
-      if (response.message === "Token response is not 200") {
-        alert("로그인 실패");
-        window.history.replaceState({}, null, location.pathname);
-      } else {
-        localStorage.setItem("access_token", response.access_token);
+      localStorage.setItem("access_token", response.access_token);
         // OTP 컴포넌트가 있는 로그인 페이지로 이동
-        window.location.href = `#/login`;
-      }
+      window.location.href = `#/login`;
     } catch (error) {
       console.error("Error: ", error.message);
     }
