@@ -10,10 +10,10 @@ export default class MyProfile extends Component {
   setup() {
     
     this.$state = {
-      user_id: 'user_id',
+      intra_pk_id: 'intra_pk_id',
       intra_id: 'intra_id',
-      name: 'name',
-      img_url: 'assets/logo.jpeg',
+      nick_name: 'nick_name',
+      profile_picture: 'assets/logo.jpeg',
       bio: 'bio',
     };
   }
@@ -27,14 +27,14 @@ export default class MyProfile extends Component {
         <h4>Intra id</h4>
         <div id = "divIntra"> ${this.$state.intra_id}</div>
         <h4>name</h4>
-        <input type="text" value="${this.$state.name}" id = "inputName"></input>
+        <input type="text" value="${this.$state.nick_name}" id = "inputName"></input>
         <h4>Bio</h4>
         <input type="text" value="${this.$state.bio}" id = "inputBio"></input>
       </div>
       <div>
         <div id ="profile-img-box">
           <h4>profile picture</h4>
-          <img id = "imgProfile" src=${this.$state.img_url}>
+          <img id = "imgProfile" src=${this.$state.profile_picture}>
           <input type="file" id = "inputProfile"  style= "display:none;" accept=".jpg" >
           </img>
           <label class="btn btn-warning" id="editButton" for="inputProfile">
@@ -50,7 +50,19 @@ export default class MyProfile extends Component {
   }
   
   setEvent() {
-  this.addEvent("click", "#saveButton", ({ target }) => {
+    this.addEvent("change", "#inputName", ({ target }) => {
+      const newName = document.getElementById("inputName").value;
+      this.setState({
+        nick_name: newName,
+      });
+    });
+    this.addEvent("change", "#inputBio", ({ target }) => {
+      const newBio = document.getElementById("inputBio").value;
+      this.setState({
+        bio: newBio,
+      });
+    });
+    this.addEvent("click", "#saveButton", ({ target }) => {
       this.inputChange();
     });
     this.addEvent("change", "#inputProfile", ({ target }) => {
@@ -63,7 +75,7 @@ export default class MyProfile extends Component {
     const newBio = document.getElementById("inputBio").value;
     console.log(newName,newBio);
     this.setState({
-      name: newName, 
+      nick_name: newName, 
       bio: newBio,
       });
       console.log(this.$state)
@@ -71,7 +83,7 @@ export default class MyProfile extends Component {
     console.log(this.$state);
   }
   
-  editButton() {
+  async editButton() {
     console.log("edit button clicked");
     
     const newImg = document.getElementById("inputProfile");
@@ -97,11 +109,15 @@ export default class MyProfile extends Component {
     // for (var pair of profile_form.entries()) {
     //   console.log(pair[0]+ ', ' + pair[1]); 
     // }
-    const img_url = 'http://127.0.0.1:8000'+ this.PostUserImg(profile_form);
-    console.log(img_url)
-    this.setState({
-      img_url: img_url.file_url,
-    });
+    try {
+      const profile_picture = await this.PostUserImg(profile_form);
+      console.log(profile_picture);
+      this.setState({
+        profile_picture: profile_picture,
+      });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   }
 
   async getUserData() {
@@ -115,11 +131,11 @@ export default class MyProfile extends Component {
       // console.log(response);
       // 가져온 데이터로 상태 업데이트
       this.setState({
-        user_id: response.intra_pk_id,
+        intra_pk_id: response.intra_pk_id,
         intra_id: response.intra_id,
-        name: response.nick_name,
+        nick_name: response.nick_name,
         bio: response.bio,
-        img_url: response.profile_picture,
+        profile_picture: response.profile_picture,
       });
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -132,16 +148,17 @@ export default class MyProfile extends Component {
     const headers = { 'JWT': token , "Content-Type": 'application/json'};
     console.log(this.$state)
     const body = {
-      user_id: this.$state.user_id,
+      intra_pk_id: this.$state.intra_pk_id,
       intra_id: this.$state.intra_id,
-      nick_name: this.$state.name,
+      nick_name: this.$state.nick_name,
       bio: this.$state.bio,
-      img_url: this.$state.profile_picture,
+      profile_picture: this.$state.profile_picture,
     }
     console.log(body)
 
     try {
       const response = await api.post(url, body, headers);
+      return response;
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -149,18 +166,15 @@ export default class MyProfile extends Component {
   
   async PostUserImg(body) {
     const url = 'http://127.0.0.1:8000/users/info/update/image';
-    // for (var pair of body.entries()) {
-    //   console.log(pair[0]+ ', ' + pair[1].name); 
-    // }
+
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token, 'Accept': 'application/json', };
     try {
-      const response = await api.post(url, body, headers);
-      console.log(response);
-      return response;
+      const response = await api.post(url, body, headers);      
+      return ('http://127.0.0.1:8000'+response.file_url);
+      // return response.data.file_url;
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-  
   }
 }

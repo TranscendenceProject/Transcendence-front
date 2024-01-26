@@ -8,7 +8,7 @@ export default class MainPage extends Component {
     if (JWT) {
       loginOrGameContent = `
       <div class="btn-box">
-      <a class="btn btn-primary" href="#/game" role="button">게임플레이</a>
+        <a class="btn btn-primary" href="#/game" role="button">게임플레이</a>
       </div>
       `;
     } else {

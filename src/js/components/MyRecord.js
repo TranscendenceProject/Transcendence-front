@@ -6,52 +6,50 @@ export default class myRecord extends Component {
   constructor($target, $props) {
     super($target, $props);
     this.getUserData();
-    console.log(this.$state.histories)
-    console.log(this.$state.user_id)
   }
   setup() {
     this.$state = {
-      user_id: 'user_id',
+      intra_pk_id: 'intra_pk_id',
       intra_id: 'intra_id',
-      name: 'name',
-      img_url: 'assets/logo.jpeg',
+      nick_name: 'nick_name',
+      profile_picture: 'assets/logo.jpeg',
       bio: 'bio',
       histories: [{
-        "user_id": "kjaeifsdfsdf",
+        "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "name": "raichuchu",
+        "nick_name": "raichuchu",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
         "game_result": "win"
       },{
-        "user_id": "kjaeifsdfsdf",
+        "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "name": "raichuchu",
+        "nick_name": "raichuchu",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
         "game_result": "win"
       },{
-        "user_id": "kjaeifsdfsdf",
+        "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "name": "raichuchu",
+        "nick_name": "raichuchu",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
         "game_result": "win"
       },{
-        "user_id": "kjaeifsdfsdf",
+        "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "name": "raichuchu",
+        "nick_name": "raichuchu",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
         "game_result": "win"
       },{
-        "user_id": "kjaeifsdfsdf",
+        "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "name": "raichuchu",
+        "nick_name": "raichuchu",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
@@ -68,8 +66,8 @@ export default class myRecord extends Component {
     <div id="record-box">
       <div id="record-profile-box">
         <div>
-          <img id = "imgRecord" src=${this.$state.img_url}>
-          <div>${this.$state.intra_id}(${this.$state.name})</div>
+          <img id = "imgRecord" src=${this.$state.profile_picture}>
+          <div>${this.$state.intra_id}(${this.$state.nick_name})</div>
         </div>
         <div id="record-circle-box">
           <div id="record-circle-text">0승 0패</div>
@@ -111,11 +109,11 @@ export default class myRecord extends Component {
         // console.log(response);
         // 가져온 데이터로 상태 업데이트
         this.setState({
-          user_id: response.intra_pk_id,
+          intra_pk_id: response.intra_pk_id,
           intra_id: response.intra_id,
-          name: response.nick_name,
+          nick_name: response.nick_name,
           bio: response.bio,
-          img_url: response.profile_picture,
+          profile_picture: response.profile_picture,
           // histories: response.histories,
         });
       } catch (error) {
