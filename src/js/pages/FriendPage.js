@@ -23,7 +23,7 @@ export default class FriendPage extends Component {
           </li>
         </ul>
       </div>
-        <img class="pikachu-image" src="../assets/background.jpeg"></img>
+        <img class="pikachu-image" src="../assets/background_1.jpeg"></img>
       </div>
       <div data-component='friendContainer' id="friendContainer"/>
 

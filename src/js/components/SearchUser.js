@@ -3,18 +3,18 @@ import Component from "../core/Component.js";
 export default class SearchUser extends Component {
   setup() {
     this.$state = {
-      users: [
+      user_profiles: [
         {
-          user_id: '1',
+          intra_pk_id: '1',
           intra_id: 'seunghwk',
-          login_status: 'true',
-          is_friend: 'false'
+          login_status: true,
+          is_friend: false
         },
         {
-          user_id: '1',
+          intra_pk_id: '1',
           intra_id: 'gsong',
-          login_status: 'false',
-          is_friend: 'true'
+          login_status: false,
+          is_friend: true
         },
       ],
     };
@@ -27,12 +27,12 @@ export default class SearchUser extends Component {
       <p>유저명</p>
       <input type="text" class="searchInput" value="">
       <button class="searchButton">검색</button>
-      <div> ${this.$state.users.map(user => `
+      <div> ${this.$state.user_profiles.map(user => `
         <div>
           <p>Intra ID: ${user.intra_id}</p>
-          <p>로그인 상태: ${user.login_status === "true" ? '로그인 중' : '로그아웃'}</p>
-          ${user.is_friend === "true" ?
-          '<p>친구</p>' : `<button class="addButton" data-user-id="${user.user_id}">친구 추가</button>`}
+          <p>로그인 상태: ${user.login_status === true ? '로그인 중' : '로그아웃'}</p>
+          ${user.is_friend === true ?
+          '<p>친구</p>' : `<button class="addButton" data-user-id="${user.intra_pk_id}">친구 추가</button>`}
         </div>
       `).join('')}</div>
     </div>
@@ -56,19 +56,19 @@ export default class SearchUser extends Component {
     // this.setState({
     //   users: [
     //     {
-    //       user_id: '1',
+    //       intra_pk_id: '1',
     //       intra_id: 'test',
     //       login_status: 'true',
     //       is_friend: 'false'
     //     },
     //     {
-    //       user_id: '1',
+    //       intra_pk_id: '1',
     //       intra_id: 'test',
     //       login_status: 'false',
     //       is_friend: 'true'
     //     },
     //     {
-    //       user_id: '1',
+    //       intra_pk_id: '1',
     //       intra_id: 'test',
     //       login_status: 'false',
     //       is_friend: 'true'
@@ -79,11 +79,11 @@ export default class SearchUser extends Component {
 
   handleAddButtonClick(e) {
     const targetUserId = e.target.dataset.userId;
-    const targetUser = this.$state.users.find(user => user.user_id === targetUserId);
-    const updatedUser = { ...targetUser, is_friend: 'true' };
+    const targetUser = this.$state.user_profiles.find(user => user.intra_pk_id === targetUserId);
+    const updatedUser = { ...targetUser, is_friend: true };
     const newState = {
       ...this.$state,
-      users: this.$state.users.map(user => (user.user_id === targetUserId ? updatedUser : user)),
+      user_profiles: this.$state.user_profiles.map(user => (user.intra_pk_id === targetUserId ? updatedUser : user)),
     };
 
     // 아래 함수에서 요청이 잘 처리되었을 때 함수 내에서 setState 호출 예정
@@ -92,7 +92,7 @@ export default class SearchUser extends Component {
   }
 
   async searchUser(searchValue) {
-    const url = `http://127.0.0.1:8000/friends/search?query=${searchInput}`;
+    const url = `http://127.0.0.1:8000/friends/search?key_word=${searchInput}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
 
@@ -100,7 +100,7 @@ export default class SearchUser extends Component {
       const response = await api.get(url, headers);
 
       this.setState({
-        users: response.users,
+        user_profiles: response.user_profiles,
       });
     } catch (error) {
       console.error('Error fetching data:', error);

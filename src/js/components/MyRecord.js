@@ -49,171 +49,43 @@ export default class myRecord extends Component {
       },{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "5",
+        "nick_name": "3",
         "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
+        "score": 5,
+        "opponent_score": 2,
+        "game_result": "win"
       },{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "6",
+        "nick_name": "3",
         "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
+        "score": 5,
+        "opponent_score": 2,
+        "game_result": "win"
       },{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "6",
+        "nick_name": "3",
         "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
+        "score": 5,
+        "opponent_score": 2,
+        "game_result": "win"
       },{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "6",
+        "nick_name": "3",
         "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
+        "score": 5,
+        "opponent_score": 2,
+        "game_result": "win"
       },{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "6",
+        "nick_name": "3",
         "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "6",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
+        "score": 5,
+        "opponent_score": 2,
+        "game_result": "win"
       }]
     };
   }
@@ -284,8 +156,6 @@ export default class myRecord extends Component {
 
     try {
       const response = await api.get(url, headers);
-      console.log(response)
-      // console.log(response);
       // 가져온 데이터로 상태 업데이트
       this.setState({
         intra_pk_id: response.intra_pk_id,
