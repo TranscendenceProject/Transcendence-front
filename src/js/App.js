@@ -32,22 +32,22 @@ export default class App extends Component {
 
         router.start();
 
-        setInterval(this.notifyLogin, 5000);
+        // setInterval(this.notifyLogin, 5000);
     }
 
-    async notifyLogin() {
-        const url = `http://127.0.0.1:8000/loginHistories/create`;
-        const token = localStorage.getItem('token');
-        const headers = { 'JWT': token };
+    // async notifyLogin() {
+    //     const url = `http://127.0.0.1:8000/loginHistories/create`;
+    //     const token = localStorage.getItem('token');
+    //     const headers = { 'JWT': token };
 
-        try {
-            if (token) {
-                const response = await api.post(url, {}, headers);
-            }
-        } catch (error) {
-        console.error('Error fetching data:', error);
-        }
-    }
+    //     try {
+    //         if (token) {
+    //             const response = await api.post(url, {}, headers);
+    //         }
+    //     } catch (error) {
+    //     console.error('Error fetching data:', error);
+    //     }
+    // }
 }
 
 

@@ -50,7 +50,19 @@ export default class MyProfile extends Component {
   }
   
   setEvent() {
-  this.addEvent("click", "#saveButton", ({ target }) => {
+    this.addEvent("change", "#inputName", ({ target }) => {
+      const newName = document.getElementById("inputName").value;
+      this.setState({
+        nick_name: newName,
+      });
+    });
+    this.addEvent("change", "#inputBio", ({ target }) => {
+      const newBio = document.getElementById("inputBio").value;
+      this.setState({
+        bio: newBio,
+      });
+    });
+    this.addEvent("click", "#saveButton", ({ target }) => {
       this.inputChange();
     });
     this.addEvent("change", "#inputProfile", ({ target }) => {
@@ -138,7 +150,7 @@ export default class MyProfile extends Component {
     const body = {
       intra_pk_id: this.$state.intra_pk_id,
       intra_id: this.$state.intra_id,
-      nick_name: this.$state.name,
+      nick_name: this.$state.nick_name,
       bio: this.$state.bio,
       profile_picture: this.$state.profile_picture,
     }

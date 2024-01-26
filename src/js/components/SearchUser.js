@@ -108,7 +108,7 @@ export default class SearchUser extends Component {
   }
 
   async addFriend(targetUserId) {
-    const url = `http://127.0.0.1:8000/friends/add?user_id=${targetUserId}`;
+    const url = `http://127.0.0.1:8000/friends/add?intra_pk_id=${targetUserId}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
     try {
