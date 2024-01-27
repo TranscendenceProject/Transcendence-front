@@ -62,7 +62,6 @@ const post = async (url, body, headers) => {
 		method: 'POST',
 		body,
 	});
-	console.log(response)
 	return response.data;
 };
 

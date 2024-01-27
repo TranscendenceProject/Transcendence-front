@@ -1,4 +1,5 @@
 import Component from "../core/Component.js";
+import DetailInfo from"../components/DetailInfo.js";
 import api from "../api/http.js";
 
 export default class SearchUser extends Component {
@@ -33,50 +34,51 @@ export default class SearchUser extends Component {
         <div>
           <p>Intra ID: ${user.intra_id}</p>
           <p>로그인 상태: ${user.is_login === true ? '로그인 중' : '로그아웃'}</p>
+          <button class="detailInfoButton" data-user-id="${user.intra_pk_id}">상세 정보</button>
           ${user.is_friend === true ?
           '<p>친구</p>' : `<button class="addButton" data-user-id="${user.intra_pk_id}">친구 추가</button>`}
         </div>
       `).join('')}</div>
+      <div id="modalContainer">
+        <div id="modal">
+          <span id="modalClose">&times;</span>
+          <div data-component='detailInfo' id="detailInfo"/>
+        </div>
+      </div>
     </div>
     `;
   }
 
   setEvent() {
     this.addEvent('click', '.searchButton', () => this.handleSearchButtonClick());
+    this.addEvent('click', '.detailInfoButton', (e) => this.handleDetailInfoButtonClick(e));
     this.addEvent('click', '.addButton', (e) => this.handleAddButtonClick(e));
+    this.addEvent('click', '#modalClose', () => this.handleModalCloseButtonClick());
   }
 
   handleSearchButtonClick() {
     const searchInput = this.$target.querySelector('.searchInput');
     const searchValue = searchInput.value;
 
-    console.log('검색어:', searchValue);
     this.searchUser(searchValue);
+  }
 
+  handleDetailInfoButtonClick(e) {
+    const $detailInfo = this.$target.querySelector(
+      "[data-component='detailInfo']"
+    );
+    const targetUserId = e.target.dataset.userId;
 
-    // // 테스트 코드
-    // this.setState({
-    //   users: [
-    //     {
-    //       intra_pk_id: '1',
-    //       intra_id: 'test',
-    //       is_login: 'true',
-    //       is_friend: 'false'
-    //     },
-    //     {
-    //       intra_pk_id: '1',
-    //       intra_id: 'test',
-    //       is_login: 'false',
-    //       is_friend: 'true'
-    //     },
-    //     {
-    //       intra_pk_id: '1',
-    //       intra_id: 'test',
-    //       is_login: 'false',
-    //       is_friend: 'true'
-    //     },
-    //   ],
-    // });
+    new DetailInfo($detailInfo, { id: targetUserId });
+
+    const modalContainer = document.getElementById('modalContainer');
+    modalContainer.style.display = 'flex';
+    modalContainer.focus();
+  }
+
+  handleModalCloseButtonClick() {
+    const modalContainer = document.getElementById('modalContainer');
+    modalContainer.style.display = 'none';
   }
 
   handleAddButtonClick(e) {
