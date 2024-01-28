@@ -55,7 +55,7 @@ export default class Otp extends Component {
 
     if (e.keyCode === 8) {
       if (currentIndex == 5) {
-        this.$state.otpString[currentIndex] = ''; 
+        this.$state.otpString[currentIndex] = '';
       }
       if (currentElement.value === '' && prevElement) {
         this.$state.otpString[prevIndex] = '';
@@ -71,7 +71,7 @@ export default class Otp extends Component {
       input_number: `${this.$state.otpString.join('')}`,
       access_token: `${localStorage.getItem('access_token')}`,
     };
-    
+
     try {
       const response = await api.post(url, body);
       console.log(response)
@@ -80,9 +80,8 @@ export default class Otp extends Component {
         alert('입력한 OTP가 유효하지 않습니다');
       } else {
         const token = response.jwt_token;
-        localStorage.setItem('token', token);
-        localStorage.setItem('loginState', 'true');
 
+        localStorage.setItem('token', token);
         window.location.href = `http://127.0.0.1:3000`;
       }
     } catch (error) {

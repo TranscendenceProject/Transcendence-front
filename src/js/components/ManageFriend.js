@@ -1,11 +1,12 @@
 import Component from "../core/Component.js";
+import DetailInfo from"../components/DetailInfo.js";
 import api from "../api/http.js";
 
 export default class ManageFriend extends Component {
   constructor($target, $props) {
     super($target, $props);
     this.getFriendsList();
-  } 
+  }
 
   setup() {
     this.$state = {
@@ -32,15 +33,24 @@ export default class ManageFriend extends Component {
         <div>
           <p>Intra ID: ${user.friend_name}</p>
           <p>로그인 상태: ${user.is_login === true ? '로그인 중' : '로그아웃'}</p>
+          <button class="detailInfoButton" data-user-id="${user.intra_pk_id}">상세 정보</button>
           <button class="deleteButton" data-user-id="${user.intra_pk_id}">친구 삭제</button>
         </div>
       `).join('')}</div>
+      <div id="modalContainer">
+        <div id="modal">
+          <span id="modalClose">&times;</span>
+          <div data-component='detailInfo' id="detailInfo"/>
+        </div>
+      </div>
     </div>
     `;
   }
 
   setEvent() {
+    this.addEvent('click', '.detailInfoButton', (e) => this.handleDetailInfoButtonClick(e));
     this.addEvent('click', '.deleteButton', (e) => this.handleDeleteButtonClick(e));
+    this.addEvent('click', '#modalClose', () => this.handleModalCloseButtonClick());
   }
 
   handleDeleteButtonClick(e) {
@@ -50,9 +60,26 @@ export default class ManageFriend extends Component {
       friends: this.$state.friends.filter(user => user.intra_pk_id !== userIdToRemove),
     };
 
-    // 아래 함수에서 요청이 잘 처리되었을 때 함수 내에서 setState 호출 예정
     this.deleteFriend(userIdToRemove);
     this.setState(newState);
+  }
+
+  handleDetailInfoButtonClick(e) {
+    const $detailInfo = this.$target.querySelector(
+      "[data-component='detailInfo']"
+    );
+    const targetUserId = e.target.dataset.userId;
+
+    new DetailInfo($detailInfo, { id: targetUserId });
+
+    const modalContainer = document.getElementById('modalContainer');
+    modalContainer.style.display = 'flex';
+    modalContainer.focus();
+  }
+
+  handleModalCloseButtonClick() {
+    const modalContainer = document.getElementById('modalContainer');
+    modalContainer.style.display = 'none';
   }
 
   async getFriendsList() {
@@ -76,8 +103,6 @@ export default class ManageFriend extends Component {
     const headers = { 'JWT': token };
     try {
       const response = await api.delete(url, headers);
-      alert("삭제 성공!");
-      //추후 응답 코드에 따라 동작 추가 예정
     } catch (error) {
       console.error('Error fetching data:', error);
     }

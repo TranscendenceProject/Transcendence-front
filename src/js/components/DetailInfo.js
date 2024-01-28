@@ -2,17 +2,17 @@ import Component from '../core/Component.js';
 import PercentageCircle from './PercentageCircle.js';
 import api from '../api/http.js';
 
-export default class MyRecord extends Component {
+export default class DetailInfo extends Component {
   constructor($target, $props) {
     super($target, $props);
     this.getUserData();
   }
   setup() {
     this.$state = {
-      intra_pk_id: 'intra_pk_id',
-      intra_id: 'intra_id',
-      nick_name: 'nick_name',
-      profile_picture: 'assets/logo.jpeg',
+      intra_pk_id: 'dummy',
+      intra_id: 'dummy',
+      nick_name: 'dummy',
+      profile_picture: 'assets/dummyProfile.jpeg',
       bio: 'bio',
       histories: [{
         "intra_pk_id": "kjaeifsdfsdf",
@@ -107,25 +107,27 @@ export default class MyRecord extends Component {
       </div>
       <div id="record-list-box">
           ${this.$state.histories.map((history) => `
-              <div id="record-item">
-                <div id="record-item-text">vs ${history.intra_id} (${history.nick_name})</div>
-                <div class="column-line"></div>
-                <div id="record-item-text">${this.dateFormat(history.start_time)}</div>
-                <div class="column-line"></div>
-                <div id="record-item-text">${history.score} : ${history.opponent_score} ${history.game_result}</div>
-              </div>
-              <hr>
+            <div id="record-item">
+              <div id="record-item-text">vs ${history.intra_id} (${history.nick_name})</div>
+              <div class="column-line"></div>
+              <div id="record-item-text">${this.dateFormat(history.start_time)}</div>
+              <div class="column-line"></div>
+              <div id="record-item-text">${history.score} : ${history.opponent_score} ${history.game_result}</div>
+            </div>
+            <hr>
           `).join('')}
       </div>
     </div>
     `;
   }
+
   mounted() {
     const $PercentageCircle = this.$target.querySelector(
       "[data-component='PercentageCircle']"
     );
+
     new PercentageCircle($PercentageCircle, {percentage: Math.floor(this.calculateWinRate()[0] / (this.calculateWinRate()[0] + this.calculateWinRate()[1]) * 100)});
-    }
+  }
 
   calculateWinRate() {
     const winCount = this.$state.histories.filter((history) => history.game_result === 'win').length;
@@ -149,8 +151,8 @@ export default class MyRecord extends Component {
   }
 
   async getUserData() {
-    const url = `http://127.0.0.1:8000/users/info/read`;
-
+    const targetId = this.$props.id;
+    const url = `http://127.0.0.1:8000/users/info/read?target_pk_id=${targetId}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
 

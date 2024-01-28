@@ -43,6 +43,7 @@ export default class App extends Component {
         try {
             if (token) {
                 const response = await api.post(url, {}, headers);
+                console.log(response)
             }
         } catch (error) {
         console.error('Error fetching data:', error);
