@@ -63,7 +63,9 @@ export default class MainPage extends Component {
   async authenticateUser(authCode) {
     try {
       const url = `http://127.0.0.1:8000/users/login/create/${authCode}`;
+      console.log("check1");
       const response = await api.get(url);
+      console.log("Check2");
 
       localStorage.setItem("access_token", response.access_token);
       window.history.replaceState({}, null, location.pathname);
