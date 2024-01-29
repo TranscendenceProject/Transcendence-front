@@ -1,5 +1,5 @@
 import Component from "../core/Component.js";
-import LocalPong from "../components/Localpong.js";
+import LocalPong from "../components/LocalPong.js";
 
 export default class LocalGamePage extends Component {
     template() {

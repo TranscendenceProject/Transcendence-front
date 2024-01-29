@@ -1,12 +1,21 @@
 import Component from "../core/Component.js";
+import MultiPong from "../components/MultiPong.js";
 
 export default class MultiGamePage extends Component {
     template() {
         return `
         <div>
-        <span>Multi canvas</span>
-        <canvas id="multi_canvas">Multi Canvas Content</canvas>
+            <div id="p1-score"></div>
+            <div id="p2-score"></div>
+            <div id="multi_canvas"></canvas>
         </div>
-    `;
+        `;
+    }
+    
+    mounted() {
+        const $local_canvas = this.$target.querySelector("#multi_canvas")
+
+        new MultiPong();
+
     }
 }
