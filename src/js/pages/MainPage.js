@@ -14,7 +14,7 @@ export default class MainPage extends Component {
     } else {
       loginOrGameContent = `
       <div class="btn-box">
-        <button id="login-button">Login</button>
+        <button class="btn btn-primary" id="login-button">Login</button>
       </div>
       `;
     }

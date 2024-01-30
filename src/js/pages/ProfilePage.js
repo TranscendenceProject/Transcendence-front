@@ -8,8 +8,6 @@ export default class ProfilePage extends Component {
     this.$state = {
       // currentMenu: 'myRecord',
       currentMenu: 'default',
-      isMyProfileChecked: "",
-      isMyRecordChecked: "",
     };
   }
 
@@ -17,10 +15,10 @@ export default class ProfilePage extends Component {
     return `
     <div class="main-box">
       <div class="btn-box">
-        <input type="radio" class="btn-check" name="options" id="radio1" autocomplete="off" ${this.$state.isMyProfileChecked} > 
-          <label class="btn btn-primary" for="radio1" ">내 정보 수정</label>
+        <input type="radio" class="btn-check" name="options" id="radio1" autocomplete="off"> 
+          <label class="btn btn-primary" for="radio1">내 정보 수정</label>
         </input>
-        <input type="radio" class="btn-check" name="options" id="radio2" autocomplete="off"  ${this.$state.isMyRecordChecked}>
+        <input type="radio" class="btn-check" name="options" id="radio2" autocomplete="off">
         <label class="btn btn-primary" for="radio2" >내 기록</label>
         </input>
       </div>
@@ -47,15 +45,11 @@ export default class ProfilePage extends Component {
     this.addEvent("click", "#radio1", ({ target }) => {
       this.setState({
         currentMenu: 'myProfile',
-        isMyProfileChecked: "checked",
-        isMyRecordChecked: "",
       });
     })
     this.addEvent("click", "#radio2", ({ target }) => {
       this.setState({
         currentMenu: 'myRecord',
-        isMyProfileChecked: "",
-        isMyRecordChecked: "checked",
       });
     })
   } 

@@ -18,7 +18,7 @@ export default class Header extends Component {
           <a href="#/profile">Profile</a>
           <a href="#/friend">Friend</a>
           <a href="#/game">Game Play</a>
-          <span class="logout">logout</span>
+          <a class="logout">Logout</a>
         </div>
     </li>
     `;
