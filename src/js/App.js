@@ -34,15 +34,15 @@ export default class App extends Component {
 
         setInterval(this.notifyLogin, 5000);
     }
-
+   
     async notifyLogin() {
-        const url = `http://127.0.0.1:8000/loginHistories/create`;
+        const path = `/loginHistories/create`;
         const token = localStorage.getItem('token');
         const headers = { 'JWT': token };
 
         try {
             if (token) {
-                const response = await api.post(url, {}, headers);
+                const response = await api.post(path, {}, headers);
                 console.log(response)
             }
         } catch (error) {

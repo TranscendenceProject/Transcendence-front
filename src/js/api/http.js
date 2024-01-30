@@ -44,7 +44,12 @@ const request = async (params) => {
 	return parseResponse(response);
 };
 
-const get = async (url, headers) => {
+const get = async (path, headers) => {
+	const HTTP_PROTOCOL = import.meta.env.TS_HTTP_PROTOCOL;
+	const HOST_IP = import.meta.env.TS_HOST_IP;
+	const SERVER_PORT = import.meta.env.TS_SERVER_PORT;
+	const ENTRYPOINT = HTTP_PROTOCOL + '://' + HOST_IP + ':' + SERVER_PORT;
+	const url = ENTRYPOINT + path;
 	const response = await request({
 		url,
 		headers,
@@ -55,7 +60,12 @@ const get = async (url, headers) => {
 	return response.data;
 };
 
-const post = async (url, body, headers) => {
+const post = async (path, body, headers) => {
+	const HTTP_PROTOCOL = import.meta.env.TS_HTTP_PROTOCOL;
+	const HOST_IP = import.meta.env.TS_HOST_IP;
+	const SERVER_PORT = import.meta.env.TS_SERVER_PORT;
+	const ENTRYPOINT = HTTP_PROTOCOL + '://' + HOST_IP + ':' + SERVER_PORT;
+	const url = ENTRYPOINT + path;
 	const response = await request({
 		url,
 		headers,
@@ -65,7 +75,12 @@ const post = async (url, body, headers) => {
 	return response.data;
 };
 
-const put = async (url, body, headers) => {
+const put = async (path, body, headers) => {
+	const HTTP_PROTOCOL = import.meta.env.TS_HTTP_PROTOCOL;
+	const HOST_IP = import.meta.env.TS_HOST_IP;
+	const SERVER_PORT = import.meta.env.TS_SERVER_PORT;
+	const ENTRYPOINT = HTTP_PROTOCOL + '://' + HOST_IP + ':' + SERVER_PORT;
+	const url = ENTRYPOINT + path;
 	const response = await request({
 		url,
 		headers,
@@ -75,7 +90,12 @@ const put = async (url, body, headers) => {
 	return response.data;
 };
 
-const patch = async (url, body, headers) => {
+const patch = async (path, body, headers) => {
+	const HTTP_PROTOCOL = import.meta.env.TS_HTTP_PROTOCOL;
+	const HOST_IP = import.meta.env.TS_HOST_IP;
+	const SERVER_PORT = import.meta.env.TS_SERVER_PORT;
+	const ENTRYPOINT = HTTP_PROTOCOL + '://' + HOST_IP + ':' + SERVER_PORT;
+	const url = ENTRYPOINT + path;
 	const response = await request({
 		url,
 		headers,
@@ -85,7 +105,12 @@ const patch = async (url, body, headers) => {
 	return response.data;
 };
 
-const deleteRequest = async (url, headers) => {
+const deleteRequest = async (path, headers) => {
+	const HTTP_PROTOCOL = import.meta.env.TS_HTTP_PROTOCOL;
+	const HOST_IP = import.meta.env.TS_HOST_IP;
+	const SERVER_PORT = import.meta.env.TS_SERVER_PORT;
+	const ENTRYPOINT = HTTP_PROTOCOL + '://' + HOST_IP + ':' + SERVER_PORT;
+	const url = ENTRYPOINT + path;
 	const response = await request({
 		url,
 		headers,

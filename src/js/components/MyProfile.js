@@ -116,13 +116,12 @@ export default class MyProfile extends Component {
   }
 
   async getUserData() {
-    const url = `http://127.0.0.1:8000/users/info/read`;
-
+    const path = `/users/info/read`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
 
     try {
-      const response = await api.get(url, headers);
+      const response = await api.get(path, headers);
       this.setState({
         intra_pk_id: response.intra_pk_id,
         intra_id: response.intra_id,
@@ -136,7 +135,8 @@ export default class MyProfile extends Component {
   }
 
   async postUserData() {
-    const url = 'http://127.0.0.1:8000/users/info/update'
+    const path = '/users/info/update'
+
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token , "Content-Type": 'application/json'};
     const body = {
@@ -148,7 +148,7 @@ export default class MyProfile extends Component {
     }
 
     try {
-      const response = await api.post(url, body, headers);
+      const response = await api.post(path, body, headers);
       console.log(response)
       this.setState({
         check_message: "저장 완료",
@@ -160,14 +160,19 @@ export default class MyProfile extends Component {
   }
   
   async PostUserImg(body) {
-    const url = 'http://127.0.0.1:8000/users/info/update/image';
+    const path = '/users/info/update/image';
 
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token, 'Accept': 'application/json', };
     try {
-      const response = await api.post(url, body, headers);
+      const HTTP_PROTOCOL = import.meta.env.TS_HTTP_PROTOCOL;
+      const HOST_IP = import.meta.env.TS_HOST_IP;
+      const SERVER_PORT = import.meta.env.TS_SERVER_PORT;
+      const ENTRYPOINT = HTTP_PROTOCOL + '://' + HOST_IP + ':' + SERVER_PORT;
+
+      const response = await api.post(path, body, headers);
       
-      return ('http://127.0.0.1:8000'+response.file_url);
+      return (ENTRYPOINT + response.file_url);
       // return response.data.file_url;
     } catch (error) {
       console.error('Error fetching data:', error);

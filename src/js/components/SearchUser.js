@@ -98,12 +98,12 @@ export default class SearchUser extends Component {
   }
 
   async searchUser(searchValue) {
-    const url = `http://127.0.0.1:8000/users/info/search?key_word=${searchValue}`;
+    const path = `/users/info/search?key_word=${searchValue}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
 
     try {
-      const response = await api.get(url, headers);
+      const response = await api.get(path, headers);
 
       this.setState({
         user_profiles: response.user_profiles,
@@ -115,11 +115,11 @@ export default class SearchUser extends Component {
   }
 
   async addFriend(targetUserId) {
-    const url = `http://127.0.0.1:8000/friends/add?friend_intra_pk_id=${targetUserId}`;
+    const path = `/friends/add?friend_intra_pk_id=${targetUserId}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
     try {
-      const response = await api.post(url,{}, headers);
+      const response = await api.post(path,{}, headers);
     } catch (error) {
       console.error('Error fetching data:', error);
     }

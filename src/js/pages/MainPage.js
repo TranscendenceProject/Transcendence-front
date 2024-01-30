@@ -56,16 +56,14 @@ export default class MainPage extends Component {
   }
 
   moveFortyTwoOAuth() {
-      const authorizationUrl = `https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-b677e803809d207e81ae3a321bdf542af8d318ca330d81824e4b972bca224918&redirect_uri=http%3A%2F%2F127.0.0.1%3A3000&response_type=code`;
+      const authorizationUrl = import.meta.env.TS_OAUTH_URL;
       window.location.href = authorizationUrl;
   }
 
   async authenticateUser(authCode) {
     try {
-      const url = `http://127.0.0.1:8000/users/login/create/${authCode}`;
-      console.log("check1");
-      const response = await api.get(url);
-      console.log("Check2");
+      const path = `/users/login/create/${authCode}`;
+      const response = await api.get(path);
 
       localStorage.setItem("access_token", response.access_token);
       window.history.replaceState({}, null, location.pathname);

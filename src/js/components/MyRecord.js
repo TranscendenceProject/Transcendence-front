@@ -151,13 +151,13 @@ export default class MyRecord extends Component {
   }
 
   async getUserData() {
-    const url = `http://127.0.0.1:8000/users/info/read`;
+    const path = `/users/info/read`;
 
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
 
     try {
-      const response = await api.get(url, headers);
+      const response = await api.get(path, headers);
       // 가져온 데이터로 상태 업데이트
       this.setState({
         intra_pk_id: response.intra_pk_id,
