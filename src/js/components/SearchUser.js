@@ -25,20 +25,22 @@ export default class SearchUser extends Component {
 
   template() {
     return `
-    <div>
-      <h2>유저 검색</h2>
-      <p>유저명</p>
-      <input type="text" class="searchInput" value="">
-      <button class="searchButton">검색</button>
-      <div> ${this.$state.user_profiles.map(user => `
-        <div>
-          <p>Intra ID: ${user.intra_id}</p>
-          <p>로그인 상태: ${user.is_login === true ? '로그인 중' : '로그아웃'}</p>
-          <button class="detailInfoButton" data-user-id="${user.intra_pk_id}">상세 정보</button>
+    <div id ="searchBox">
+      <div id = "searchInputBox">
+        <input type="text" class="searchInput" id="searchInput"  value="" placeholder="intraID">
+        <button id ="searchButton"  class="searchButton"><img id="searchButtonIcon" src="../../assets/searchIcon.png"></img></button>
+      </div>
+      <div id="searchResultBox">
+         ${this.$state.user_profiles.map(user => `
+        <div id ="searchResultItem">
+          <div id="searchResultItemIntraId"> ${user.intra_id} ${user.is_login === true ?'<div id="isLoginTrueCircle"></div>':'<div id="isLoginFalseCircle"></div>'}</div>
+          <button class="btn btn-primary" id="detailInfoButton" data-user-id="${user.intra_pk_id}">상세 정보</button>
           ${user.is_friend === true ?
-          '<p>친구</p>' : `<button class="addButton" data-user-id="${user.intra_pk_id}">친구 추가</button>`}
-        </div>
-      `).join('')}</div>
+          '<p id ="searchResultP" class="btn btn-primary">친구</p>' : `<button class="btn btn-primary" id="addButton" data-user-id="${user.intra_pk_id}">친구 추가</button>`}
+          </div>
+          <hr>
+      `).join('')}
+      </div>
       <div id="modalContainer">
         <div id="modal">
           <span id="modalClose">&times;</span>
@@ -51,8 +53,8 @@ export default class SearchUser extends Component {
 
   setEvent() {
     this.addEvent('click', '.searchButton', () => this.handleSearchButtonClick());
-    this.addEvent('click', '.detailInfoButton', (e) => this.handleDetailInfoButtonClick(e));
-    this.addEvent('click', '.addButton', (e) => this.handleAddButtonClick(e));
+    this.addEvent('click', '#detailInfoButton', (e) => this.handleDetailInfoButtonClick(e));
+    this.addEvent('click', '#addButton', (e) => this.handleAddButtonClick(e));
     this.addEvent('click', '#modalClose', () => this.handleModalCloseButtonClick());
   }
 
@@ -106,6 +108,7 @@ export default class SearchUser extends Component {
       this.setState({
         user_profiles: response.user_profiles,
       });
+      console.log(response);
     } catch (error) {
       console.error('Error fetching data:', error);
     }

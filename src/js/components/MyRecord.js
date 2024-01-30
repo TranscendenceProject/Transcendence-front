@@ -17,7 +17,7 @@ export default class MyRecord extends Component {
       histories: [{
         "intra_pk_id": "kjaeifsdfsdf",
         "intra_id": "raichu",
-        "nick_name": "1",
+        "nick_name": "abcddfdkfjalkdsfjlkasdfjlksjf",
         "start_time": "2024-01-19T17:32:28Z",
         "score": 4,
         "opponent_score": 7,
@@ -108,11 +108,13 @@ export default class MyRecord extends Component {
       <div id="record-list-box">
           ${this.$state.histories.map((history) => `
               <div id="record-item">
-                <div id="record-item-text">vs ${history.intra_id} (${history.nick_name})</div>
+                ${history.game_result === "lose" ? `<div id="record-item-lose"> </div>`: `<div id="record-item-win"> </div>`}
                 <div class="column-line"></div>
-                <div id="record-item-text">${this.dateFormat(history.start_time)}</div>
+                <div id="record-item-name">vs ${history.intra_id} (${this.limitNicknameLength(history.nick_name)})</div>
                 <div class="column-line"></div>
-                <div id="record-item-text">${history.score} : ${history.opponent_score} ${history.game_result}</div>
+                <div id="record-item-time">${this.dateFormat(history.start_time)}</div>
+                <div class="column-line"></div>
+                <div id="record-item-score">${history.score} : ${history.opponent_score} ${history.game_result}</div>
               </div>
               <hr>
           `).join('')}
@@ -168,6 +170,13 @@ export default class MyRecord extends Component {
     } catch (error) {
       console.error('Error fetching data:', error);
     }
+  }
+
+  limitNicknameLength(nickname) {
+    if (nickname.length >= 10) {
+      nickname = nickname.substring(0, 10) + "...";
+    }
+    return nickname;
   }
 }
 

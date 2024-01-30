@@ -27,15 +27,15 @@ export default class ManageFriend extends Component {
 
   template() {
     return `
-    <div>
-      <h2>친구 관리</h2>
-      <div> ${this.$state.friends.map(user => `
-        <div>
-          <p>Intra ID: ${user.friend_name}</p>
-          <p>로그인 상태: ${user.is_login === true ? '로그인 중' : '로그아웃'}</p>
-          <button class="detailInfoButton" data-user-id="${user.intra_pk_id}">상세 정보</button>
-          <button class="deleteButton" data-user-id="${user.intra_pk_id}">친구 삭제</button>
+    <div id="friendBox">
+      <div>내 친구 : ${this.$state.friends.length}</div>
+      <div id="friendListBox"> ${this.$state.friends.map(user => `
+      <div id ="searchResultItem">
+        <div id="searchResultItemIntraId"> ${user.friend_name} ${user.is_login === true ?'<div id="isLoginTrueCircle"></div>':'<div id="isLoginFalseCircle"></div>'}</div>
+          <button class="btn btn-primary"  id="detailInfoButton" data-user-id="${user.intra_pk_id}">상세 정보</button>
+          <button class="btn btn-primary" id="deleteButton" data-user-id="${user.intra_pk_id}">친구 삭제</button>
         </div>
+        <hr>
       `).join('')}</div>
       <div id="modalContainer">
         <div id="modal">
@@ -48,8 +48,8 @@ export default class ManageFriend extends Component {
   }
 
   setEvent() {
-    this.addEvent('click', '.detailInfoButton', (e) => this.handleDetailInfoButtonClick(e));
-    this.addEvent('click', '.deleteButton', (e) => this.handleDeleteButtonClick(e));
+    this.addEvent('click', '#detailInfoButton', (e) => this.handleDetailInfoButtonClick(e));
+    this.addEvent('click', '#deleteButton', (e) => this.handleDeleteButtonClick(e));
     this.addEvent('click', '#modalClose', () => this.handleModalCloseButtonClick());
   }
 
