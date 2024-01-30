@@ -75,7 +75,11 @@ export default class MultiPong {
 	}
 
 	_setupSocket() {
-		const url = 'ws://localhost:8000/multiPong/';
+		const SOCKET_PROTOCOL = import.meta.env.TS_SOCKET_PROTOCOL;
+		const HOST_IP = import.meta.env.TS_HOST_IP;
+		const SERVER_PORT = import.meta.env.TS_SERVER_PORT;
+		const ENTRYPOINT = SOCKET_PROTOCOL + '://' + HOST_IP + ':' + SERVER_PORT;
+		const url = ENTRYPOINT + '/multiPong/';
 		const socket = new WebSocket(url);
 		// const JWT = localStorage.getItem("token");
 		// )

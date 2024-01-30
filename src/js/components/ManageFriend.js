@@ -83,11 +83,11 @@ export default class ManageFriend extends Component {
   }
 
   async getFriendsList() {
-    const url = `http://127.0.0.1:8000/friends/list`;
+    const path = `/friends/list`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
     try {
-      const response = await api.get(url, headers);
+      const response = await api.get(path, headers);
 
       this.setState({
         friends: response.friends,
@@ -98,11 +98,11 @@ export default class ManageFriend extends Component {
   }
 
   async deleteFriend(targetUserId) {
-    const url = `http://127.0.0.1:8000/friends/delete?friend_intra_pk_id=${targetUserId}`;
+    const path = `/friends/delete?friend_intra_pk_id=${targetUserId}`;
     const token = localStorage.getItem('token');
     const headers = { 'JWT': token };
     try {
-      const response = await api.delete(url, headers);
+      const response = await api.delete(path, headers);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
