@@ -33,8 +33,12 @@ export default class Header extends Component {
 
   setEvent() {
     this.addEvent('click', '.logout', ({ target }) => {
+      const HTTP_PROTOCOL = import.meta.env.TS_HTTP_PROTOCOL;
+      const HOST_IP = import.meta.env.TS_HOST_IP;
+      const WEB_SERVER_PORT = import.meta.env.TS_WEB_SERVER_PORT;
+      const ENTRYPOINT = HTTP_PROTOCOL + '://' + HOST_IP + ':' + WEB_SERVER_PORT;
       localStorage.removeItem('token');
-      window.location.href = `http://127.0.0.1:3000`;
+      window.location.href = ENTRYPOINT;
     });
   }
 }

@@ -1,15 +1,19 @@
 const parseResponse = async (response) => {
 	const { status } = response;
 	let data;
+	const HTTP_PROTOCOL = import.meta.env.TS_HTTP_PROTOCOL;
+	const HOST_IP = import.meta.env.TS_HOST_IP;
+	const WEB_SERVER_PORT = import.meta.env.TS_WEB_SERVER_PORT;
+	const ENTRYPOINT = HTTP_PROTOCOL + '://' + HOST_IP + ':' + WEB_SERVER_PORT;
 
 	if (status == 400 || status == 401) {
 		localStorage.removeItem('token');
 		alert("유효하지 않은 로그인 정보입니다 다시 로그인해 주십시오")
-		window.location.href = `http://127.0.0.1:3000`;
+		window.location.href = ENTRYPOINT;
 	} else if (status == 404) {
 		localStorage.removeItem('token');
 		alert("잘못된 접근입니다 다시 로그인해 주십시오")
-		window.location.href = `http://127.0.0.1:3000`;
+		window.location.href = ENTRYPOINT;
 	} else if (status !== 204) {
 		data = await response.json();
 	}
