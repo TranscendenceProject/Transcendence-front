@@ -1,6 +1,12 @@
 import Component from "./core/Component.js";
+import MultiPong from "./components/MultiPong.js";
 
 export default class Router extends Component {
+    constructor($target, $props) {
+        super($target, $props)
+        this.$game = new MultiPong();
+    }
+
     setup() {
         this.$state = {
             routes: [],
@@ -22,7 +28,13 @@ export default class Router extends Component {
             return;
         }
 
+        // 소켓 연결 종료 함수 호출
+        this.$game.disconnect_socket();
         currentRoute.component();
+        // multiGamePage로 이동 시 게임 시작
+        if (currentRoute.fragment === "#/game/multiGame") {
+            this.$game.run();
+        }
     }
 
     start() {
