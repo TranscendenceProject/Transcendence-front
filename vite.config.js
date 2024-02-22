@@ -1,11 +1,12 @@
 import { defineConfig } from "vite"
+import basicSsl from '@vitejs/plugin-basic-ssl'
 
 export default defineConfig ({
   root: './src',
   envDir: '../',
   envPrefix: 'TS_',
   server: {
-    port: 3000,
+    port: 443,
     hot: true
   },
   resolve: {
@@ -13,5 +14,8 @@ export default defineConfig ({
       '@bootstrap': 'node_modules/bootstrap',
       '@jquery': 'node_modules/jquery'
     }
-  }
+  },
+  plugins: [
+    basicSsl()
+  ]
 })
