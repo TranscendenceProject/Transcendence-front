@@ -39,6 +39,10 @@ export default class LocalPong {
 		this._animationFrameId = requestAnimationFrame(this.render.bind(this));
 	}
 
+	terminateGame() {
+		cancelAnimationFrame(this._animationFrameId);
+	}
+
 	_sleep(sec) {
 		let start = Date.now(), now = start;
 		while (now - start < sec * 1000) {

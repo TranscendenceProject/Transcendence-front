@@ -11,11 +11,4 @@ export default class LocalGamePage extends Component {
         </div>
         `;
     }
-    
-    mounted() {
-        const $local_canvas = this.$target.querySelector("#local_canvas")
-
-        new LocalPong();
-
-    }
 }

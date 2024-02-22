@@ -11,11 +11,4 @@ export default class MultiGamePage extends Component {
         </div>
         `;
     }
-    
-    mounted() {
-        const $local_canvas = this.$target.querySelector("#multi_canvas")
-
-        new MultiPong();
-
-    }
 }

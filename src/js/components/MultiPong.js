@@ -52,23 +52,25 @@ export default class MultiPong {
 		this._socket.onopen = function(event) {
 			console.log('WebSocket이 열렸습니다.');
 			// jwt 소켓으로 전송.
-			socket.send(JSON.stringify({
+			this._socket.send(JSON.stringify({
 				'type': 'jwt',
 				'jwt': JWT
 			}));
-		}
+		}.bind(this);
 
 		this._socket.onmessage = function(event) {
 			const data = JSON.parse(event.data);
 			switch (data.type) {
 				case 'game_over_disconnected':
-					if (data.detail === 'game_over') {
-						console.log("player " + data.winner + " win!");
-					} else if (data.detail === 'game_over_disconnected') {
-						console.log("Opponent disconnected! " + "player " + data.winner + " win!");
-					}
 					this._socket.close();
 					cancelAnimationFrame(this._animationFrameId);
+                    if (data.detail === 'game_over') {
+						alert("player " + (data.winner === 1 ? this._p1nickname : this._p2nickname) + " win!");
+                        window.location.hash = "#";
+                    } else if (data.detail === 'game_over_disconnected') {
+						alert("Opponent disconnected! " + "player " + (data.winner === 1 ? this._p1nickname : this._p2nickname) + " win!");
+                        window.location.hash = "#";
+                    }
 					break;
 				case 'player_num':
 					this._player_num = data.player_num;
@@ -231,8 +233,8 @@ export default class MultiPong {
 			this._sphere.rotation.z += this._rotation_speed;
 		}
 
-		this._div_p1score.innerHTML = this._p1nickname + "P1 Score : " + this._p1score;
-		this._div_p2score.innerHTML = this._p2nickname + "P2 Score : " + this._p2score;
+		this._div_p1score.innerHTML = this._p1nickname + " P1 Score : " + this._p1score;
+		this._div_p2score.innerHTML = this._p2nickname + " P2 Score : " + this._p2score;
 	}
 
 	run() {
