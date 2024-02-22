@@ -171,7 +171,7 @@ export default class MyRecord extends Component {
         nick_name: response.nick_name,
         profile_picture: response.profile_picture,
         bio: response.bio,
-        // histories: response.histories,
+        histories: response.histories,
       });
     } catch (error) {
       console.error('Error fetching data:', error);
