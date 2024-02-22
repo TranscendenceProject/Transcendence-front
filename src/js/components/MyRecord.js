@@ -14,79 +14,82 @@ export default class MyRecord extends Component {
       nick_name: 'nick_name',
       profile_picture: 'assets/logo.jpeg',
       bio: 'bio',
-      histories: [{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "abcddfdkfjalkdsfjlkasdfjlksjf",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "2",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "3",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 5,
-        "opponent_score": 2,
-        "game_result": "win"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "4",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 4,
-        "opponent_score": 7,
-        "game_result": "lose"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "3",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 5,
-        "opponent_score": 2,
-        "game_result": "win"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "3",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 5,
-        "opponent_score": 2,
-        "game_result": "win"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "3",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 5,
-        "opponent_score": 2,
-        "game_result": "win"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "3",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 5,
-        "opponent_score": 2,
-        "game_result": "win"
-      },{
-        "intra_pk_id": "kjaeifsdfsdf",
-        "intra_id": "raichu",
-        "nick_name": "3",
-        "start_time": "2024-01-19T17:32:28Z",
-        "score": 5,
-        "opponent_score": 2,
-        "game_result": "win"
-      }]
+      histories: [
+        // {
+        // "intra_pk_id": "kjaeifsdfsdf",
+        // "intra_id": "raichu",
+        // "nick_name": "abcddfdkfjalkdsfjlkasdfjlksjf",
+        // "start_time": "2024-01-19T17:32:28Z",
+        // "score": 4,
+        // "opponent_score": 7,
+        // "game_result": "lose"
+      // }
+      // ,{
+      //   "intra_pk_id": "kjaeifsdfsdf",
+      //   "intra_id": "raichu",
+      //   "nick_name": "2",
+      //   "start_time": "2024-01-19T17:32:28Z",
+      //   "score": 4,
+      //   "opponent_score": 7,
+      //   "game_result": "lose"
+      // },{
+      //   "intra_pk_id": "kjaeifsdfsdf",
+      //   "intra_id": "raichu",
+      //   "nick_name": "3",
+      //   "start_time": "2024-01-19T17:32:28Z",
+      //   "score": 5,
+      //   "opponent_score": 2,
+      //   "game_result": "win"
+      // },{
+      //   "intra_pk_id": "kjaeifsdfsdf",
+      //   "intra_id": "raichu",
+      //   "nick_name": "4",
+      //   "start_time": "2024-01-19T17:32:28Z",
+      //   "score": 4,
+      //   "opponent_score": 7,
+      //   "game_result": "lose"
+      // },{
+      //   "intra_pk_id": "kjaeifsdfsdf",
+      //   "intra_id": "raichu",
+      //   "nick_name": "3",
+      //   "start_time": "2024-01-19T17:32:28Z",
+      //   "score": 5,
+      //   "opponent_score": 2,
+      //   "game_result": "win"
+      // },{
+      //   "intra_pk_id": "kjaeifsdfsdf",
+      //   "intra_id": "raichu",
+      //   "nick_name": "3",
+      //   "start_time": "2024-01-19T17:32:28Z",
+      //   "score": 5,
+      //   "opponent_score": 2,
+      //   "game_result": "win"
+      // },{
+      //   "intra_pk_id": "kjaeifsdfsdf",
+      //   "intra_id": "raichu",
+      //   "nick_name": "3",
+      //   "start_time": "2024-01-19T17:32:28Z",
+      //   "score": 5,
+      //   "opponent_score": 2,
+      //   "game_result": "win"
+      // },{
+      //   "intra_pk_id": "kjaeifsdfsdf",
+      //   "intra_id": "raichu",
+      //   "nick_name": "3",
+      //   "start_time": "2024-01-19T17:32:28Z",
+      //   "score": 5,
+      //   "opponent_score": 2,
+      //   "game_result": "win"
+      // },{
+      //   "intra_pk_id": "kjaeifsdfsdf",
+      //   "intra_id": "raichu",
+      //   "nick_name": "3",
+      //   "start_time": "2024-01-19T17:32:28Z",
+      //   "score": 5,
+      //   "opponent_score": 2,
+      //   "game_result": "win"
+      // }
+    ]
     };
   }
 
@@ -126,7 +129,10 @@ export default class MyRecord extends Component {
     const $PercentageCircle = this.$target.querySelector(
       "[data-component='PercentageCircle']"
     );
-    new PercentageCircle($PercentageCircle, {percentage: Math.floor(this.calculateWinRate()[0] / (this.calculateWinRate()[0] + this.calculateWinRate()[1]) * 100)});
+    if (this.calculateWinRate()[0] === 0 && this.calculateWinRate()[1] === 0)
+      new PercentageCircle($PercentageCircle, {percentage: 100});
+    else
+      new PercentageCircle($PercentageCircle, {percentage: Math.floor(this.calculateWinRate()[0] / (this.calculateWinRate()[0] + this.calculateWinRate()[1]) * 100)});
     }
 
   calculateWinRate() {

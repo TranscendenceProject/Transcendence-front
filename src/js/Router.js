@@ -40,8 +40,8 @@ export default class Router extends Component {
         // multiGamePage로 이동 시 게임 시작
         if (currentRoute.fragment === "#/game/multiGame") {
             this.$multiPong.run();
-        } else if (currentRoute.fragment === "#/game/localGame") {
-            this.$localPong = new LocalPong()
+        } else if (currentRoute.fragment === "#/game/prepare/localGame") {
+            this.$localPong = new LocalPong();
         }
     }
 

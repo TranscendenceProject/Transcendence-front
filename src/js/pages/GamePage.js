@@ -7,7 +7,7 @@ export default class GamePage extends Component {
       <div class="btn-box">
         <ul>
           <li>
-            <a class="btn btn-primary" role="button"  href="#/game/localGame">로컬플레이</a>
+            <a class="btn btn-primary" role="button"  href="#/game/prepare">로컬플레이</a>
           </li>
           <li>
             <a class="btn btn-primary" role="button"  href="#/game/multiGame">멀티플레이</a>
