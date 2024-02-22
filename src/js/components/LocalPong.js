@@ -36,7 +36,11 @@ export default class LocalPong {
 		//window.onresize -> 창크기 변경시 발생하는 메서드
 		this.resize(); //renderer와 camera의 속성을 창크기에 맞게 설정해주기 위함.
 
-		requestAnimationFrame(this.render.bind(this));
+		this._animationFrameId = requestAnimationFrame(this.render.bind(this));
+	}
+
+	terminateGame() {
+		cancelAnimationFrame(this._animationFrameId);
 	}
 
 	_sleep(sec) {
@@ -177,11 +181,14 @@ export default class LocalPong {
 
 	render(time) {
 		// exit game
-		// if (this._p1score == 10 || this._p2score == 10)
-		// 	return;
+		if (this._p1score == 10 || this._p2score == 10)
+		{
+			cancelAnimationFrame(this._animationFrameId);
+			return;
+		}
 		this._renderer.render(this._scene, this._camera);
 		this.update(time);
-		requestAnimationFrame(this.render.bind(this));
+		this._animationFrameId = requestAnimationFrame(this.render.bind(this));
 	}
 
 	_CheckKeyboardInput() {
@@ -247,7 +254,7 @@ export default class LocalPong {
 
 	_BallHitBox( normal, position ) {
 		const tmp_vector = new THREE.Vector3();
-		tmp_vector.subVectors(this._sphere.position, position).add(normal);
+		tmp_vector.subVectors(this._sphere.position, position).multiplyScalar(2).add(normal);
 		this._sphere_direction.copy(tmp_vector).normalize();
 	}
 

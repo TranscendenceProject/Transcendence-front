@@ -7,15 +7,15 @@ import LocalGamePage from "./LocalGamePage.js";
 import MultiGamePage from "./MultiGamePage.js";
 import TournamentGamePage from "./TournamentGamePage.js";
 
-export default (target, $props) => {
-  const main = () => new MainPage(target, $props);
-  const game = () => new GamePage(target, $props);
-  const profile = () => new ProfilePage(target, $props);
-  const friend = () => new FriendPage(target, $props);
-  const login = () => new LoginPage(target, $props);
-  const localGame = () => new LocalGamePage(target, $props);
-  const multiGame = () => new MultiGamePage(target, $props);
-  const tournamentGame = () => new TournamentGamePage(target, $props);
+export default ($target, $props) => {
+  const main = () => new MainPage($target, $props);
+  const game = () => new GamePage($target, $props);
+  const profile = () => new ProfilePage($target, $props);
+  const friend = () => new FriendPage($target, $props);
+  const login = () => new LoginPage($target, $props);
+  const localGame = () => new LocalGamePage($target, $props);
+  const multiGame = () => new MultiGamePage($target, $props);
+  const tournamentGame = () => new TournamentGamePage($target, $props);
 
   return {
     main,

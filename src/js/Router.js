@@ -1,6 +1,14 @@
 import Component from "./core/Component.js";
+import LocalPong from "./components/LocalPong.js";
+import MultiPong from "./components/MultiPong.js";
 
 export default class Router extends Component {
+    constructor($target, $props) {
+        super($target, $props)
+        this.$localPong = null;
+        this.$multiPong = new MultiPong();
+    }
+
     setup() {
         this.$state = {
             routes: [],
@@ -22,7 +30,19 @@ export default class Router extends Component {
             return;
         }
 
+        // 소켓 연결 종료 함수 호출
+        if (this.$localPong) {
+            this.$localPong.terminateGame();
+            this.$localPong = null;
+        }
+        this.$multiPong.disconnect_socket();
         currentRoute.component();
+        // multiGamePage로 이동 시 게임 시작
+        if (currentRoute.fragment === "#/game/multiGame") {
+            this.$multiPong.run();
+        } else if (currentRoute.fragment === "#/game/localGame") {
+            this.$localPong = new LocalPong()
+        }
     }
 
     start() {
