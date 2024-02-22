@@ -22,6 +22,11 @@ export default class LocalPong {
 
 		const div_p1score = document.getElementById("p1-score");
 		const div_p2score = document.getElementById("p2-score");
+		
+		const player1 = localStorage.getItem("player1_name");
+        const player2 = localStorage.getItem("player2_name");
+		this.player1 = player1;
+		this.player2 = player2;
 
 		this._div_p1score = div_p1score;
 		this._div_p2score = div_p2score;
@@ -268,8 +273,8 @@ export default class LocalPong {
 		this._sphere.position.addScaledVector(this._sphere_direction, this._sphere_speed);
 
 		this._CheckBallCollision();
-		this._div_p1score.innerHTML = "P1 Score : " + this._p1score;
-		this._div_p2score.innerHTML = "P2 Score : " + this._p2score;
+		this._div_p1score.innerHTML = this.player1 + " Score : " + this._p1score;
+		this._div_p2score.innerHTML = this.player2 + " Score : " + this._p2score;
 	}
 }
 
