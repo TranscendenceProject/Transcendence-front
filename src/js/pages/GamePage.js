@@ -12,9 +12,6 @@ export default class GamePage extends Component {
           <li>
             <a class="btn btn-primary" role="button"  href="#/game/multiGame">멀티플레이</a>
           </li>
-          <li>
-            <a class="btn btn-primary" role="button" href="#/game/tournamentGame">토너먼트</a>
-          </li>
         </ul>
       </div>
       <img class="pikachu-image" src="/assets/background_1.jpeg"></img>
