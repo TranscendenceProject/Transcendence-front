@@ -60,6 +60,7 @@ export default class MultiPong {
 
 		this._socket.onmessage = function(event) {
 			const data = JSON.parse(event.data);
+			console.log(data.type);
 			switch (data.type) {
 				case 'game_over_disconnected':
 					this._socket.close();

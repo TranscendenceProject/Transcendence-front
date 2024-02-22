@@ -37,13 +37,13 @@ export default class LocalGamePreparePage extends Component {
   }
 
   setPlayerFirstName(e) {
-    const name = document.getElementById('player1').value;
+    let name = document.getElementById('player1').value;
     if (name === "")
       name = "player1";
     localStorage.setItem("player1_name", name);
   }
   setPlayerSecondName(e) {
-    const name = document.getElementById('player2').value;
+    let name = document.getElementById('player2').value;
     if (name === "")
       name = "player2";
     localStorage.setItem("player2_name", name);
