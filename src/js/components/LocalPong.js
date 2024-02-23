@@ -232,18 +232,22 @@ export default class LocalPong {
 		if (this._BBsphere.intersectsPlane(this._RightSidePlane)) {
 			this._sphere.position.set(0, 0, 0);
 			this._p1score += 1;
+			this._sphere_speed = 0.03;
 			this._sleep(1.5);
 		}
 		if (this._BBsphere.intersectsPlane(this._LeftSidePlane)) {
 			this._sphere.position.set(0, 0, 0);
 			this._p2score += 1;
+			this._sphere_speed = 0.03;
 			this._sleep(1.5);
 		}
 		if (this._BBsphere.intersectsBox(this._BBcube_1)) {
 			this._BallHitBox(new THREE.Vector3(-1, 0, 0), this._cube_1.position);
+			if (this._sphere_speed < 0.06) this._sphere_speed += 0.005;
 		}
 		if (this._BBsphere.intersectsBox(this._BBcube_2)) {
 			this._BallHitBox(new THREE.Vector3(1, 0, 0), this._cube_2.position);
+			if (this._sphere_speed < 0.06) this._sphere_speed += 0.005;
 		}
 	}
 

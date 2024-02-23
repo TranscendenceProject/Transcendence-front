@@ -60,7 +60,6 @@ export default class MultiPong {
 
 		this._socket.onmessage = function(event) {
 			const data = JSON.parse(event.data);
-			console.log(data.type);
 			switch (data.type) {
 				case 'game_over_disconnected':
 					this._socket.close();
@@ -92,6 +91,7 @@ export default class MultiPong {
 					this._p2score = data.player_2_score;
 					break;
 				case 'nick_name':
+					console.log(data.p1_nick_name, data.p2_nick_name);
 					this._p1nickname = data.p1_nick_name;
 					this._p2nickname = data.p2_nick_name;
 			}
@@ -216,6 +216,7 @@ export default class MultiPong {
 	_CheckKeyboardInput() {
 		['ArrowRight', 'ArrowLeft'].forEach((key) => {
 			if (this._socket.readyState === WebSocket.OPEN && this._keyboardState[key]) {
+				console.log(this, key);
 				this._socket.send(JSON.stringify({
 					'type': 'keydown',
 					'keycode': this._keyMapping[key],
