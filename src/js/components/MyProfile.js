@@ -49,19 +49,35 @@ export default class MyProfile extends Component {
   
   setEvent() {
     this.addEvent("change", "#inputName", ({ target }) => {
+      
       const newName = document.getElementById("inputName").value;
-      this.setState({
-        nick_name: newName,
-        check_message: '',
-
-      });
+      if (!this.defenseXSS(newName)) {
+        this.setState({
+          nick_name: this.$state.intra_id,
+          check_message: '',  
+        });
+        console.log(this.$state.nick_name)
+      } else {
+        this.setState({
+          nick_name: newName,
+          check_message: '',
+        });
+      }
     });
     this.addEvent("change", "#inputBio", ({ target }) => {
       const newBio = document.getElementById("inputBio").value;
+      if (!this.defenseXSS(newBio)) {
+        console.log("xss");
+        this.setState({
+          bio: '',
+          check_message: '',  
+        });
+      }else {
       this.setState({
         bio: newBio,
         check_message: '',
-      });
+        });
+      }
     });
     this.addEvent("click", "#saveButton", ({ target }) => {
       this.inputChange();
@@ -72,16 +88,28 @@ export default class MyProfile extends Component {
   }
 
   inputChange() {
-    const newName = document.getElementById("inputName").value;
-    const newBio = document.getElementById("inputBio").value;
+    const newName = this.handleInputQuote(document.getElementById("inputName").value);
+    const newBio = this.handleInputQuote(document.getElementById("inputBio").value);
     console.log(newBio)
+    
     this.setState({
       nick_name: newName, 
       bio: newBio,
       });
     this.postUserData();
   }
-  
+  handleInputQuote(value_str){
+    value_str = value_str.replace(/\"/g,"&quot;");
+    return value_str;
+  }
+  defenseXSS(text) {
+    const regex = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9| |~|!|?|@|(|)|]+$/;
+    if (!regex.test(text) && text) {
+        alert('특수 문자는 입력할 수 없습니다.');
+        return false;
+    }
+    return true;
+}
   async editButton() {
     console.log("edit button clicked");
     
