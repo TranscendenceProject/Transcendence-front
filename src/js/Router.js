@@ -42,7 +42,7 @@ export default class Router extends Component {
             this.$multiPong.run();
         } else if (currentRoute.fragment === "#/game/prepare/localGame") {
             this.$localPong = new LocalPong();
-        } else if (currentRoute.fragment !== "#/") {
+        } else if (currentRoute.fragment !== "#/" && currentRoute.fragment !== "#/login") {
             if (localStorage.getItem("token") === null) {
                 window.location.href = "#/";
             }
