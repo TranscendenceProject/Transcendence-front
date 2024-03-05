@@ -186,9 +186,11 @@ export default class LocalPong {
 
 	render(time) {
 		// exit game
-		if (this._p1score == 10 || this._p2score == 10)
+		if (this._p1score === 5 || this._p2score === 5)
 		{
 			cancelAnimationFrame(this._animationFrameId);
+			alert("player " + (this._p1score === 5 ? this.player1 : this.player2) + " win!");
+            window.location.hash = "#";
 			return;
 		}
 		this._renderer.render(this._scene, this._camera);
